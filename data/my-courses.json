@@ -1,0 +1,113 @@
+[
+  {
+    "courseId": "course_my_001",
+    "courseName": "내 제주 감귤 빵지순례",
+    "regionName": "제주도",
+    "iconCoordinates": {
+      "lat": 33.2397,
+      "lng": 126.4120
+    },
+    "bakeries": [
+      {
+        "bakeryId": "bakery_my_001",
+        "bakeryName": "제주 서귀포 아늑한 빵집"
+      },
+      {
+        "bakeryId": "bakery_my_002",
+        "bakeryName": "중문동 감귤크림빵 전문점"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewId": "review_001",
+        "content": "제주 감귤을 활용한 특별한 빵들이 정말 맛있어요! 특히 감귤크림빵은 입안 가득 감귤 향이 나서 정말 특별했습니다.",
+        "rating": 5
+      },
+      {
+        "reviewId": "review_002",
+        "content": "바다 뷰를 보면서 먹는 바게트는 정말 로맨틱해요! 완벽한 크루아상입니다.",
+        "rating": 4
+      }
+    ],
+    "createdAt": "2024-01-20T14:22:00Z",
+    "totalBakeries": 2,
+    "averageRating": 4.5
+  },
+  {
+    "courseId": "course_my_002",
+    "courseName": "서울 강남 소금빵 투어",
+    "regionName": "서울",
+    "iconCoordinates": {
+      "lat": 37.5665,
+      "lng": 127.0333
+    },
+    "bakeries": [
+      {
+        "bakeryId": "bakery_my_003",
+        "bakeryName": "강남역 소금빵 전문점"
+      },
+      {
+        "bakeryId": "bakery_my_004",
+        "bakeryName": "역삼동 아침빵 하우스"
+      },
+      {
+        "bakeryId": "bakery_my_005",
+        "bakeryName": "선릉역 베이커리 카페"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewId": "review_003",
+        "content": "소금빵이 정말 맛있어요! 겉은 바삭하고 속은 쫄깃해서 식감이 완벽합니다.",
+        "rating": 5
+      },
+      {
+        "reviewId": "review_004",
+        "content": "매일 아침에 신선하게 구워서 나와요. 가격도 합리적이고 위치도 좋습니다.",
+        "rating": 4
+      },
+      {
+        "reviewId": "review_005",
+        "content": "아메리카노와 함께 먹으면 최고예요! 직원분들도 친절하시고 분위기도 좋아요.",
+        "rating": 4
+      }
+    ],
+    "createdAt": "2024-01-18T10:15:00Z",
+    "totalBakeries": 3,
+    "averageRating": 4.3
+  },
+  {
+    "courseId": "course_my_003",
+    "courseName": "부산 해운대 바다뷰 빵지순례",
+    "regionName": "부산",
+    "iconCoordinates": {
+      "lat": 35.1587,
+      "lng": 129.1603
+    },
+    "bakeries": [
+      {
+        "bakeryId": "bakery_my_006",
+        "bakeryName": "해운대 바게트 하우스"
+      },
+      {
+        "bakeryId": "bakery_my_007",
+        "bakeryName": "우동 바다뷰 베이커리"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewId": "review_006",
+        "content": "바다 뷰를 보면서 먹는 바게트는 정말 로맨틱해요! 해운대 여행 시 꼭 들러야 할 곳이에요.",
+        "rating": 5
+      },
+      {
+        "reviewId": "review_007",
+        "content": "바게트가 정말 바삭하고 겉은 딱딱하지만 속은 쫄깃해서 완벽합니다.",
+        "rating": 5
+      }
+    ],
+    "createdAt": "2024-01-17T16:45:00Z",
+    "totalBakeries": 2,
+    "averageRating": 5.0
+  }
+]

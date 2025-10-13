@@ -1,0 +1,176 @@
+{
+  "mapConfig": {
+    "defaultCenter": {
+      "lat": 36.5,
+      "lng": 127.5
+    },
+    "defaultZoom": 7,
+    "minZoom": 5,
+    "maxZoom": 18,
+    "regions": {
+      "seoul": {
+        "bounds": {
+          "north": 37.7151,
+          "south": 37.4133,
+          "east": 127.2693,
+          "west": 126.7643
+        },
+        "center": {
+          "lat": 37.5665,
+          "lng": 127.0333
+        }
+      },
+      "jeju": {
+        "bounds": {
+          "north": 33.5580,
+          "south": 33.1240,
+          "east": 126.9420,
+          "west": 126.1420
+        },
+        "center": {
+          "lat": 33.4996,
+          "lng": 126.5312
+        }
+      },
+      "busan": {
+        "bounds": {
+          "north": 35.4595,
+          "south": 34.8675,
+          "east": 129.2245,
+          "west": 128.7995
+        },
+        "center": {
+          "lat": 35.1796,
+          "lng": 129.0756
+        }
+      },
+      "daegu": {
+        "bounds": {
+          "north": 35.8878,
+          "south": 35.4140,
+          "east": 128.7465,
+          "west": 128.4563
+        },
+        "center": {
+          "lat": 35.8714,
+          "lng": 128.6014
+        }
+      },
+      "gwangju": {
+        "bounds": {
+          "north": 35.2287,
+          "south": 35.0903,
+          "east": 126.9380,
+          "west": 126.7672
+        },
+        "center": {
+          "lat": 35.1595,
+          "lng": 126.8526
+        }
+      },
+      "daejeon": {
+        "bounds": {
+          "north": 36.4585,
+          "south": 36.2671,
+          "east": 127.5512,
+          "west": 127.2028
+        },
+        "center": {
+          "lat": 36.3628,
+          "lng": 127.3770
+        }
+      }
+    }
+  },
+  "markerStyles": {
+    "courseMarkers": {
+      "jeju": {
+        "color": "#FF6B6B",
+        "icon": "🥖",
+        "size": "medium"
+      },
+      "seoul": {
+        "color": "#4ECDC4",
+        "icon": "🥐",
+        "size": "medium"
+      },
+      "busan": {
+        "color": "#45B7D1",
+        "icon": "🍞",
+        "size": "medium"
+      },
+      "daegu": {
+        "color": "#96CEB4",
+        "icon": "🥨",
+        "size": "medium"
+      },
+      "gwangju": {
+        "color": "#FECA57",
+        "icon": "🧁",
+        "size": "medium"
+      },
+      "daejeon": {
+        "color": "#FF9FF3",
+        "icon": "🍰",
+        "size": "medium"
+      }
+    },
+    "bakeryMarkers": {
+      "active": {
+        "color": "#FF4757",
+        "icon": "📍",
+        "size": "small"
+      },
+      "inactive": {
+        "color": "#747D8C",
+        "icon": "📍",
+        "size": "small"
+      },
+      "selected": {
+        "color": "#2ED573",
+        "icon": "📍",
+        "size": "large"
+      }
+    }
+  },
+  "apiEndpoints": {
+    "kakaoMap": {
+      "baseUrl": "https://dapi.kakao.com/v2",
+      "services": {
+        "geocoding": "/local/geo/coord2address.json",
+        "reverseGeocoding": "/local/geo/coord2address.json",
+        "keywordSearch": "/local/search/keyword.json",
+        "categorySearch": "/local/search/category.json"
+      }
+    },
+    "naverMap": {
+      "baseUrl": "https://naveropenapi.apigw.ntruss.com/map-api/v1",
+      "services": {
+        "geocoding": "/geocode",
+        "reverseGeocoding": "/reversegeocode"
+      }
+    },
+    "googleMap": {
+      "baseUrl": "https://maps.googleapis.com/maps/api",
+      "services": {
+        "geocoding": "/geocode/json",
+        "places": "/place/nearbysearch/json",
+        "placeDetails": "/place/details/json"
+      }
+    }
+  },
+  "realTimeData": {
+    "updateIntervals": {
+      "popularCourses": "24h",
+      "userRanking": "1h",
+      "recommendationCount": "realtime"
+    },
+    "cacheSettings": {
+      "popularCourses": "1h",
+      "userRanking": "30m",
+      "bakeryDetails": "6h"
+    }
+  }
+}
+
+

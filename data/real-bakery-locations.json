@@ -1,0 +1,242 @@
+[
+  {
+    "bakeryId": "bakery_jeju_001",
+    "bakeryName": "제주 서귀포 아늑한 빵집",
+    "address": "제주특별자치도 서귀포시 중문동 123-45",
+    "detailedAddress": "제주특별자치도 서귀포시 중문동 123-45 아늑한빵집",
+    "coordinates": {
+      "lat": 33.2397,
+      "lng": 126.4120
+    },
+    "region": {
+      "code": "50110",
+      "name": "서귀포시",
+      "sido": "제주특별자치도"
+    },
+    "operatingHours": {
+      "monday": {"open": "08:00", "close": "20:00"},
+      "tuesday": {"open": "08:00", "close": "20:00"},
+      "wednesday": {"open": "08:00", "close": "20:00"},
+      "thursday": {"open": "08:00", "close": "20:00"},
+      "friday": {"open": "08:00", "close": "20:00"},
+      "saturday": {"open": "08:00", "close": "20:00"},
+      "sunday": {"open": "08:00", "close": "20:00"}
+    },
+    "closedDays": [],
+    "phoneNumber": "064-123-4567",
+    "website": "https://example.com/jeju-bakery",
+    "category": "카페형 빵집",
+    "tags": ["감귤빵", "제주", "크림빵", "친절한직원"],
+    "priceRange": "$$",
+    "parking": true,
+    "wifi": true,
+    "takeout": true,
+    "delivery": false
+  },
+  {
+    "bakeryId": "bakery_jeju_002",
+    "bakeryName": "중문동 감귤크림빵 전문점",
+    "address": "제주특별자치도 서귀포시 중문동 456-78",
+    "detailedAddress": "제주특별자치도 서귀포시 중문동 456-78 감귤크림빵전문점",
+    "coordinates": {
+      "lat": 33.2456,
+      "lng": 126.4189
+    },
+    "region": {
+      "code": "50110",
+      "name": "서귀포시",
+      "sido": "제주특별자치도"
+    },
+    "operatingHours": {
+      "monday": {"open": "07:00", "close": "22:00"},
+      "tuesday": {"open": "07:00", "close": "22:00"},
+      "wednesday": {"open": "07:00", "close": "22:00"},
+      "thursday": {"open": "07:00", "close": "22:00"},
+      "friday": {"open": "07:00", "close": "22:00"},
+      "saturday": {"open": "07:00", "close": "22:00"},
+      "sunday": "closed"
+    },
+    "closedDays": ["sunday"],
+    "phoneNumber": "064-234-5678",
+    "website": null,
+    "category": "전문 빵집",
+    "tags": ["감귤크림빵", "제주", "신선빵", "아침빵"],
+    "priceRange": "$$",
+    "parking": true,
+    "wifi": false,
+    "takeout": true,
+    "delivery": false
+  },
+  {
+    "bakeryId": "bakery_seoul_001",
+    "bakeryName": "강남역 소금빵 전문점",
+    "address": "서울특별시 강남구 역삼동 123-45",
+    "detailedAddress": "서울특별시 강남구 역삼동 123-45 소금빵전문점",
+    "coordinates": {
+      "lat": 37.5665,
+      "lng": 127.0333
+    },
+    "region": {
+      "code": "11680",
+      "name": "강남구",
+      "sido": "서울특별시"
+    },
+    "operatingHours": {
+      "monday": "closed",
+      "tuesday": {"open": "07:30", "close": "21:30"},
+      "wednesday": {"open": "07:30", "close": "21:30"},
+      "thursday": {"open": "07:30", "close": "21:30"},
+      "friday": {"open": "07:30", "close": "21:30"},
+      "saturday": {"open": "07:30", "close": "21:30"},
+      "sunday": {"open": "07:30", "close": "21:30"}
+    },
+    "closedDays": ["monday"],
+    "phoneNumber": "02-1234-5678",
+    "website": "https://example.com/saltbread",
+    "category": "전문 빵집",
+    "tags": ["소금빵", "강남", "바삭함", "원조"],
+    "priceRange": "$$",
+    "parking": false,
+    "wifi": true,
+    "takeout": true,
+    "delivery": true
+  },
+  {
+    "bakeryId": "bakery_busan_001",
+    "bakeryName": "해운대 바게트 하우스",
+    "address": "부산광역시 해운대구 우동 789-01",
+    "detailedAddress": "부산광역시 해운대구 우동 789-01 바게트하우스",
+    "coordinates": {
+      "lat": 35.1587,
+      "lng": 129.1603
+    },
+    "region": {
+      "code": "26350",
+      "name": "해운대구",
+      "sido": "부산광역시"
+    },
+    "operatingHours": {
+      "monday": {"open": "09:00", "close": "21:00"},
+      "tuesday": "closed",
+      "wednesday": {"open": "09:00", "close": "21:00"},
+      "thursday": {"open": "09:00", "close": "21:00"},
+      "friday": {"open": "09:00", "close": "21:00"},
+      "saturday": {"open": "09:00", "close": "21:00"},
+      "sunday": {"open": "09:00", "close": "21:00"}
+    },
+    "closedDays": ["tuesday"],
+    "phoneNumber": "051-123-4567",
+    "website": "https://example.com/baguette-house",
+    "category": "전문 빵집",
+    "tags": ["바게트", "해운대", "바다뷰", "로맨틱"],
+    "priceRange": "$$$",
+    "parking": true,
+    "wifi": true,
+    "takeout": true,
+    "delivery": false
+  },
+  {
+    "bakeryId": "bakery_daegu_001",
+    "bakeryName": "중앙동 할머니 빵집",
+    "address": "대구광역시 중구 중앙동 234-56",
+    "detailedAddress": "대구광역시 중구 중앙동 234-56 할머니빵집",
+    "coordinates": {
+      "lat": 35.8714,
+      "lng": 128.6014
+    },
+    "region": {
+      "code": "27110",
+      "name": "중구",
+      "sido": "대구광역시"
+    },
+    "operatingHours": {
+      "monday": "closed",
+      "tuesday": {"open": "06:00", "close": "18:00"},
+      "wednesday": "closed",
+      "thursday": {"open": "06:00", "close": "18:00"},
+      "friday": {"open": "06:00", "close": "18:00"},
+      "saturday": {"open": "06:00", "close": "18:00"},
+      "sunday": {"open": "06:00", "close": "18:00"}
+    },
+    "closedDays": ["monday", "wednesday"],
+    "phoneNumber": "053-123-4567",
+    "website": null,
+    "category": "전통 빵집",
+    "tags": ["호밀빵", "잡곡빵", "전통", "저렴"],
+    "priceRange": "$",
+    "parking": false,
+    "wifi": false,
+    "takeout": true,
+    "delivery": false
+  },
+  {
+    "bakeryId": "bakery_gwangju_001",
+    "bakeryName": "상무지구 디저트 카페",
+    "address": "광주광역시 서구 상무동 567-89",
+    "detailedAddress": "광주광역시 서구 상무동 567-89 디저트카페",
+    "coordinates": {
+      "lat": 35.1595,
+      "lng": 126.8526
+    },
+    "region": {
+      "code": "29170",
+      "name": "서구",
+      "sido": "광주광역시"
+    },
+    "operatingHours": {
+      "monday": {"open": "10:00", "close": "23:00"},
+      "tuesday": "closed",
+      "wednesday": {"open": "10:00", "close": "23:00"},
+      "thursday": {"open": "10:00", "close": "23:00"},
+      "friday": {"open": "10:00", "close": "23:00"},
+      "saturday": {"open": "10:00", "close": "23:00"},
+      "sunday": {"open": "10:00", "close": "23:00"}
+    },
+    "closedDays": ["tuesday"],
+    "phoneNumber": "062-123-4567",
+    "website": "https://example.com/dessert-cafe",
+    "category": "디저트 카페",
+    "tags": ["케이크", "티라미수", "데이트", "분위기좋은"],
+    "priceRange": "$$$",
+    "parking": true,
+    "wifi": true,
+    "takeout": true,
+    "delivery": true
+  },
+  {
+    "bakeryId": "bakery_daejeon_001",
+    "bakeryName": "유성구 크루아상 전문점",
+    "address": "대전광역시 유성구 온천동 345-67",
+    "detailedAddress": "대전광역시 유성구 온천동 345-67 크루아상전문점",
+    "coordinates": {
+      "lat": 36.3628,
+      "lng": 127.3770
+    },
+    "region": {
+      "code": "30170",
+      "name": "유성구",
+      "sido": "대전광역시"
+    },
+    "operatingHours": {
+      "monday": "closed",
+      "tuesday": {"open": "08:30", "close": "20:30"},
+      "wednesday": {"open": "08:30", "close": "20:30"},
+      "thursday": {"open": "08:30", "close": "20:30"},
+      "friday": {"open": "08:30", "close": "20:30"},
+      "saturday": {"open": "08:30", "close": "20:30"},
+      "sunday": {"open": "08:30", "close": "20:30"}
+    },
+    "closedDays": ["monday"],
+    "phoneNumber": "042-123-4567",
+    "website": "https://example.com/croissant-shop",
+    "category": "전문 빵집",
+    "tags": ["크루아상", "아몬드크루아상", "아메리카노", "완벽한맛"],
+    "priceRange": "$$",
+    "parking": true,
+    "wifi": true,
+    "takeout": true,
+    "delivery": false
+  }
+]
+
+

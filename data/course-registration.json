@@ -1,0 +1,124 @@
+[
+  {
+    "bakeryId": "bakery_reg_001",
+    "bakeryName": "제주 서귀포 아늑한 빵집",
+    "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop",
+    "closedDays": ["Monday"],
+    "rating": 5,
+    "reviewText": "제주 감귤을 활용한 특별한 빵들이 정말 맛있어요! 특히 감귤크림빵은 입안 가득 감귤 향이 나서 정말 특별했습니다. 직원분들도 친절하시고 분위기도 아늑해요.",
+    "address": "제주특별자치도 서귀포시 중문동 123-45",
+    "coordinates": {
+      "lat": 33.2397,
+      "lng": 126.4120
+    },
+    "operatingHours": {
+      "open": "08:00",
+      "close": "20:00"
+    },
+    "orderInCourse": 1,
+    "category": "카페형 빵집",
+    "tags": ["감귤빵", "제주", "크림빵", "친절한직원"]
+  },
+  {
+    "bakeryId": "bakery_reg_002",
+    "bakeryName": "중문동 감귤크림빵 전문점",
+    "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop",
+    "closedDays": ["Sunday"],
+    "rating": 4,
+    "reviewText": "감귤크림빵이 정말 일품이에요! 겉은 바삭하고 속은 쫄깃해서 식감이 완벽합니다. 매일 아침에 신선하게 구워서 나와요.",
+    "address": "제주특별자치도 서귀포시 중문동 456-78",
+    "coordinates": {
+      "lat": 33.2456,
+      "lng": 126.4189
+    },
+    "operatingHours": {
+      "open": "07:00",
+      "close": "22:00"
+    },
+    "orderInCourse": 2,
+    "category": "전문 빵집",
+    "tags": ["감귤크림빵", "제주", "신선빵", "아침빵"]
+  },
+  {
+    "bakeryId": "bakery_reg_003",
+    "bakeryName": "제주시 올레길 빵집",
+    "imageUrl": "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop",
+    "closedDays": ["Tuesday"],
+    "rating": 4,
+    "reviewText": "올레길을 걷다가 발견한 빵집이에요. 제주 특산물을 활용한 빵들이 정말 맛있습니다. 특히 흑돼지 크로크무슈는 일품이에요!",
+    "address": "제주특별자치도 제주시 연동 789-01",
+    "coordinates": {
+      "lat": 33.4890,
+      "lng": 126.4983
+    },
+    "operatingHours": {
+      "open": "09:00",
+      "close": "21:00"
+    },
+    "orderInCourse": 3,
+    "category": "전통 빵집",
+    "tags": ["올레길", "제주특산물", "흑돼지빵", "전통"]
+  },
+  {
+    "bakeryId": "bakery_reg_004",
+    "bakeryName": "강남역 소금빵 전문점",
+    "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
+    "closedDays": ["Monday"],
+    "rating": 5,
+    "reviewText": "소금빵의 원조라고 할 수 있는 곳이에요! 겉은 바삭하고 속은 쫄깃해서 완벽한 소금빵입니다. 매일 아침 줄이 길어요.",
+    "address": "서울특별시 강남구 역삼동 123-45",
+    "coordinates": {
+      "lat": 37.5665,
+      "lng": 127.0333
+    },
+    "operatingHours": {
+      "open": "07:30",
+      "close": "21:30"
+    },
+    "orderInCourse": 1,
+    "category": "전문 빵집",
+    "tags": ["소금빵", "강남", "바삭함", "원조"]
+  },
+  {
+    "bakeryId": "bakery_reg_005",
+    "bakeryName": "역삼동 아침빵 하우스",
+    "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+    "closedDays": ["Sunday"],
+    "rating": 4,
+    "reviewText": "아침에 일찍 열어서 출근길에 들르기 좋아요. 바게트와 크루아상이 특히 맛있습니다. 가격도 합리적이에요.",
+    "address": "서울특별시 강남구 역삼동 456-78",
+    "coordinates": {
+      "lat": 37.5647,
+      "lng": 127.0295
+    },
+    "operatingHours": {
+      "open": "06:00",
+      "close": "20:00"
+    },
+    "orderInCourse": 2,
+    "category": "전문 빵집",
+    "tags": ["아침빵", "바게트", "크루아상", "출근길"]
+  },
+  {
+    "bakeryId": "bakery_reg_006",
+    "bakeryName": "선릉역 베이커리 카페",
+    "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop",
+    "closedDays": [],
+    "rating": 4,
+    "reviewText": "선릉역 바로 앞에 있어서 접근성이 좋아요. 빵과 커피를 함께 즐길 수 있어서 좋습니다. 특히 티라미수가 맛있어요.",
+    "address": "서울특별시 강남구 선릉로 789-01",
+    "coordinates": {
+      "lat": 37.5047,
+      "lng": 127.0490
+    },
+    "operatingHours": {
+      "open": "08:00",
+      "close": "23:00"
+    },
+    "orderInCourse": 3,
+    "category": "카페형 빵집",
+    "tags": ["선릉역", "커피", "티라미수", "접근성좋음"]
+  }
+]
+
+

@@ -1,0 +1,198 @@
+{
+  "tables": {
+    "users": {
+      "columns": {
+        "id": "VARCHAR(50) PRIMARY KEY",
+        "email": "VARCHAR(100) UNIQUE NOT NULL",
+        "nickname": "VARCHAR(50) NOT NULL",
+        "profileImage": "TEXT",
+        "passwordHash": "VARCHAR(255)",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+        "lastActiveAt": "TIMESTAMP",
+        "totalUploads": "INT DEFAULT 0",
+        "level": "VARCHAR(20) DEFAULT '빵지순례 초급자'",
+        "region": "VARCHAR(20)",
+        "isActive": "BOOLEAN DEFAULT TRUE"
+      },
+      "indexes": [
+        "INDEX idx_email (email)",
+        "INDEX idx_nickname (nickname)",
+        "INDEX idx_totalUploads (totalUploads)",
+        "INDEX idx_region (region)",
+        "INDEX idx_createdAt (createdAt)"
+      ]
+    },
+    "bread_courses": {
+      "columns": {
+        "id": "VARCHAR(50) PRIMARY KEY",
+        "userId": "VARCHAR(50) NOT NULL",
+        "courseName": "VARCHAR(100) NOT NULL",
+        "description": "TEXT",
+        "region": "VARCHAR(20) NOT NULL",
+        "thumbnailUrl": "TEXT",
+        "totalRecommendations": "INT DEFAULT 0",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+        "isPublic": "BOOLEAN DEFAULT TRUE",
+        "isActive": "BOOLEAN DEFAULT TRUE"
+      },
+      "indexes": [
+        "INDEX idx_userId (userId)",
+        "INDEX idx_region (region)",
+        "INDEX idx_totalRecommendations (totalRecommendations)",
+        "INDEX idx_createdAt (createdAt)",
+        "INDEX idx_isPublic (isPublic)",
+        "FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE"
+      ]
+    },
+    "bakeries": {
+      "columns": {
+        "id": "VARCHAR(50) PRIMARY KEY",
+        "courseId": "VARCHAR(50) NOT NULL",
+        "bakeryName": "VARCHAR(100) NOT NULL",
+        "address": "VARCHAR(200) NOT NULL",
+        "detailedAddress": "VARCHAR(300)",
+        "latitude": "DECIMAL(10, 8) NOT NULL",
+        "longitude": "DECIMAL(11, 8) NOT NULL",
+        "imageUrl": "TEXT",
+        "phoneNumber": "VARCHAR(20)",
+        "website": "TEXT",
+        "category": "VARCHAR(50)",
+        "priceRange": "VARCHAR(10)",
+        "parking": "BOOLEAN DEFAULT FALSE",
+        "wifi": "BOOLEAN DEFAULT FALSE",
+        "takeout": "BOOLEAN DEFAULT TRUE",
+        "delivery": "BOOLEAN DEFAULT FALSE",
+        "operatingHours": "JSON",
+        "closedDays": "JSON",
+        "orderInCourse": "INT NOT NULL",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+        "isActive": "BOOLEAN DEFAULT TRUE"
+      },
+      "indexes": [
+        "INDEX idx_courseId (courseId)",
+        "INDEX idx_bakeryName (bakeryName)",
+        "INDEX idx_coordinates (latitude, longitude)",
+        "INDEX idx_category (category)",
+        "INDEX idx_orderInCourse (orderInCourse)",
+        "FOREIGN KEY (courseId) REFERENCES bread_courses(id) ON DELETE CASCADE"
+      ]
+    },
+    "reviews": {
+      "columns": {
+        "id": "VARCHAR(50) PRIMARY KEY",
+        "bakeryId": "VARCHAR(50) NOT NULL",
+        "userId": "VARCHAR(50) NOT NULL",
+        "content": "TEXT NOT NULL",
+        "rating": "INT CHECK (rating >= 1 AND rating <= 5) NOT NULL",
+        "images": "JSON",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+        "isActive": "BOOLEAN DEFAULT TRUE"
+      },
+      "indexes": [
+        "INDEX idx_bakeryId (bakeryId)",
+        "INDEX idx_userId (userId)",
+        "INDEX idx_rating (rating)",
+        "INDEX idx_createdAt (createdAt)",
+        "FOREIGN KEY (bakeryId) REFERENCES bakeries(id) ON DELETE CASCADE",
+        "FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE"
+      ]
+    },
+    "recommendations": {
+      "columns": {
+        "id": "VARCHAR(50) PRIMARY KEY",
+        "courseId": "VARCHAR(50) NOT NULL",
+        "fromUserId": "VARCHAR(50) NOT NULL",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "UNIQUE KEY unique_course_user (courseId, fromUserId)"
+      },
+      "indexes": [
+        "INDEX idx_courseId (courseId)",
+        "INDEX idx_fromUserId (fromUserId)",
+        "INDEX idx_createdAt (createdAt)",
+        "FOREIGN KEY (courseId) REFERENCES bread_courses(id) ON DELETE CASCADE",
+        "FOREIGN KEY (fromUserId) REFERENCES users(id) ON DELETE CASCADE"
+      ]
+    },
+    "popular_courses": {
+      "columns": {
+        "id": "VARCHAR(50) PRIMARY KEY",
+        "courseId": "VARCHAR(50) NOT NULL",
+        "month": "VARCHAR(7) NOT NULL",
+        "rank": "INT NOT NULL",
+        "totalRecommendations": "INT NOT NULL",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": [
+        "INDEX idx_courseId (courseId)",
+        "INDEX idx_month (month)",
+        "INDEX idx_rank (rank)",
+        "UNIQUE KEY unique_course_month (courseId, month)",
+        "FOREIGN KEY (courseId) REFERENCES bread_courses(id) ON DELETE CASCADE"
+      ]
+    },
+    "user_stats": {
+      "columns": {
+        "userId": "VARCHAR(50) PRIMARY KEY",
+        "totalUploads": "INT DEFAULT 0",
+        "totalRecommendations": "INT DEFAULT 0",
+        "totalReviews": "INT DEFAULT 0",
+        "averageRating": "DECIMAL(3, 2) DEFAULT 0.00",
+        "lastActiveAt": "TIMESTAMP",
+        "createdAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": [
+        "INDEX idx_totalUploads (totalUploads)",
+        "INDEX idx_totalRecommendations (totalRecommendations)",
+        "INDEX idx_lastActiveAt (lastActiveAt)",
+        "FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE"
+      ]
+    }
+  },
+  "views": {
+    "user_ranking_view": {
+      "sql": "SELECT u.id, u.nickname, u.profileImage, us.totalUploads, u.level, u.region, u.lastActiveAt FROM users u JOIN user_stats us ON u.id = us.userId WHERE u.isActive = TRUE ORDER BY us.totalUploads DESC, u.lastActiveAt DESC"
+    },
+    "popular_courses_monthly_view": {
+      "sql": "SELECT pc.*, bc.courseName, bc.region, bc.thumbnailUrl FROM popular_courses pc JOIN bread_courses bc ON pc.courseId = bc.id WHERE pc.month = ? ORDER BY pc.rank ASC"
+    },
+    "course_with_bakeries_view": {
+      "sql": "SELECT bc.*, JSON_ARRAYAGG(JSON_OBJECT('id', b.id, 'name', b.bakeryName, 'lat', b.latitude, 'lng', b.longitude, 'order', b.orderInCourse)) as bakeries FROM bread_courses bc LEFT JOIN bakeries b ON bc.id = b.courseId WHERE bc.isActive = TRUE GROUP BY bc.id"
+    }
+  },
+  "triggers": {
+    "update_user_stats_on_course_insert": {
+      "event": "AFTER INSERT ON bread_courses",
+      "sql": "INSERT INTO user_stats (userId, totalUploads) VALUES (NEW.userId, 1) ON DUPLICATE KEY UPDATE totalUploads = totalUploads + 1, updatedAt = CURRENT_TIMESTAMP"
+    },
+    "update_user_stats_on_course_delete": {
+      "event": "AFTER DELETE ON bread_courses",
+      "sql": "UPDATE user_stats SET totalUploads = totalUploads - 1, updatedAt = CURRENT_TIMESTAMP WHERE userId = OLD.userId"
+    },
+    "update_course_recommendations": {
+      "event": "AFTER INSERT ON recommendations",
+      "sql": "UPDATE bread_courses SET totalRecommendations = totalRecommendations + 1 WHERE id = NEW.courseId"
+    },
+    "update_popular_courses_monthly": {
+      "event": "AFTER INSERT ON recommendations",
+      "sql": "CALL UpdatePopularCoursesMonthly()"
+    }
+  },
+  "stored_procedures": {
+    "UpdatePopularCoursesMonthly": {
+      "parameters": [],
+      "sql": "BEGIN DECLARE current_month VARCHAR(7); SET current_month = DATE_FORMAT(NOW(), '%Y-%m'); DELETE FROM popular_courses WHERE month = current_month; INSERT INTO popular_courses (courseId, month, rank, totalRecommendations) SELECT courseId, current_month, ROW_NUMBER() OVER (ORDER BY totalRecommendations DESC) as rank, totalRecommendations FROM bread_courses WHERE isActive = TRUE ORDER BY totalRecommendations DESC LIMIT 10; END"
+    },
+    "GetUserCoursesWithBakeries": {
+      "parameters": ["user_id VARCHAR(50)"],
+      "sql": "SELECT bc.*, JSON_ARRAYAGG(JSON_OBJECT('id', b.id, 'name', b.bakeryName, 'lat', b.latitude, 'lng', b.longitude, 'order', b.orderInCourse, 'imageUrl', b.imageUrl)) as bakeries FROM bread_courses bc LEFT JOIN bakeries b ON bc.id = b.courseId WHERE bc.userId = user_id AND bc.isActive = TRUE GROUP BY bc.id ORDER BY bc.createdAt DESC"
+    }
+  }
+}
+
+

@@ -1,0 +1,134 @@
+[
+  {
+    "courseId": "course_jeju_001",
+    "courseName": "제주 감귤 빵지순례 코스",
+    "regionName": "제주도",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop",
+    "recommendationCount": 156,
+    "bakeries": [
+      {
+        "bakeryId": "bakery_jeju_001",
+        "bakeryName": "제주 서귀포 아늑한 빵집"
+      },
+      {
+        "bakeryId": "bakery_jeju_002", 
+        "bakeryName": "중문동 감귤크림빵 전문점"
+      },
+      {
+        "bakeryId": "bakery_jeju_003",
+        "bakeryName": "제주시 올레길 빵집"
+      }
+    ],
+    "estimatedTime": "2-3시간",
+    "difficulty": "쉬움",
+    "totalDistance": "8.5km"
+  },
+  {
+    "courseId": "course_seoul_001",
+    "courseName": "서울 강남 소금빵 투어",
+    "regionName": "서울",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop",
+    "recommendationCount": 142,
+    "bakeries": [
+      {
+        "bakeryId": "bakery_seoul_001",
+        "bakeryName": "강남역 소금빵 전문점"
+      },
+      {
+        "bakeryId": "bakery_seoul_002",
+        "bakeryName": "역삼동 아침빵 하우스"
+      },
+      {
+        "bakeryId": "bakery_seoul_003",
+        "bakeryName": "선릉역 베이커리 카페"
+      }
+    ],
+    "estimatedTime": "1-2시간",
+    "difficulty": "쉬움",
+    "totalDistance": "4.2km"
+  },
+  {
+    "courseId": "course_busan_001",
+    "courseName": "부산 해운대 바게트 여행",
+    "regionName": "부산",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&h=400&fit=crop",
+    "recommendationCount": 128,
+    "bakeries": [
+      {
+        "bakeryId": "bakery_busan_001",
+        "bakeryName": "해운대 바게트 하우스"
+      },
+      {
+        "bakeryId": "bakery_busan_002",
+        "bakeryName": "우동 바다뷰 베이커리"
+      },
+      {
+        "bakeryId": "bakery_busan_003",
+        "bakeryName": "송정동 전통 빵집"
+      }
+    ],
+    "estimatedTime": "2시간",
+    "difficulty": "보통",
+    "totalDistance": "6.8km"
+  },
+  {
+    "courseId": "course_daegu_001",
+    "courseName": "대구 중앙동 전통 빵지순례",
+    "regionName": "대구",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
+    "recommendationCount": 89,
+    "bakeries": [
+      {
+        "bakeryId": "bakery_daegu_001",
+        "bakeryName": "중앙동 할머니 빵집"
+      },
+      {
+        "bakeryId": "bakery_daegu_002",
+        "bakeryName": "동성로 호밀빵 전문점"
+      }
+    ],
+    "estimatedTime": "1.5시간",
+    "difficulty": "쉬움",
+    "totalDistance": "3.1km"
+  },
+  {
+    "courseId": "course_gwangju_001",
+    "courseName": "광주 상무지구 디저트 투어",
+    "regionName": "광주",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop",
+    "recommendationCount": 76,
+    "bakeries": [
+      {
+        "bakeryId": "bakery_gwangju_001",
+        "bakeryName": "상무지구 디저트 카페"
+      },
+      {
+        "bakeryId": "bakery_gwangju_002",
+        "bakeryName": "무등산 티라미수 전문점"
+      }
+    ],
+    "estimatedTime": "1시간",
+    "difficulty": "쉬움",
+    "totalDistance": "2.5km"
+  },
+  {
+    "courseId": "course_daejeon_001",
+    "courseName": "대전 유성구 크루아상 코스",
+    "regionName": "대전",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop",
+    "recommendationCount": 67,
+    "bakeries": [
+      {
+        "bakeryId": "bakery_daejeon_001",
+        "bakeryName": "유성구 크루아상 전문점"
+      },
+      {
+        "bakeryId": "bakery_daejeon_002",
+        "bakeryName": "온천동 아몬드 크루아상"
+      }
+    ],
+    "estimatedTime": "1시간",
+    "difficulty": "쉬움",
+    "totalDistance": "2.8km"
+  }
+]
