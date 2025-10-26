@@ -16,9 +16,9 @@ export default function CTAButton({ text, href, variant = 'primary' }: CTAButton
   
   return (
     <Link href={href} className={`${baseClasses} ${variantClasses}`}>
-      <p className={`font-bold text-[18px] uppercase whitespace-nowrap leading-[1.4] tracking-[-0.5px] ${
+      <p className={`text-[20px] uppercase whitespace-nowrap leading-[1.4] ${
         variant === 'primary' ? 'text-white' : 'text-[#473327]'
-      }`}>
+      }`} style={{ fontFamily: 'Helvetica Neue, Pretendard, sans-serif', fontWeight: 700 }}>
         {text}
       </p>
       <div className="flex items-center justify-center w-[32px] h-[32px]">

@@ -22,7 +22,7 @@ export default function Home() {
 
         {/* Search Input */}
         <div className="absolute left-1/2 -translate-x-1/2 bg-white rounded-[100px] px-[20px] py-[8.5px] h-[57px] w-[850px] flex items-center justify-between">
-          <p className="font-medium text-[18px] text-[#d3ccc6] whitespace-nowrap">
+          <p className="text-[18px] text-[#d3ccc6] whitespace-nowrap" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 500 }}>
             맛있는 빵을 검색해보세요
           </p>
           <div className="bg-[#473327] rounded-[30px] w-[41px] h-[40px] flex items-center justify-center">
@@ -35,7 +35,7 @@ export default function Home() {
 
         {/* Profile */}
         <div className="flex items-center gap-[8px]">
-          <p className="font-semibold text-[15px] text-white opacity-70 whitespace-nowrap">
+          <p className="text-[15px] text-white opacity-70 whitespace-nowrap" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>
             Hyegyo Lee
           </p>
           <div className="size-[28px] rounded-full overflow-hidden bg-white flex items-center justify-center">
@@ -48,13 +48,13 @@ export default function Home() {
       <div className="bg-[#9a8779] h-[44px] relative w-full">
         <div className="absolute left-[30px] top-1/2 -translate-y-1/2 flex items-center gap-[8px]">
           <button className="bg-[rgba(255,255,255,0.15)] rounded-[8px] px-[24px] py-[8px]">
-            <p className="font-semibold text-[13px] text-white">Home</p>
+            <p className="text-[13px] text-white" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>Home</p>
           </button>
           <button className="rounded-[8px] px-[24px] py-[8px]">
-            <p className="font-semibold text-[13px] text-white/50">Others</p>
+            <p className="text-[13px] text-white/50" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>Others</p>
           </button>
           <Link href="/my-map" className="rounded-[8px] px-[24px] py-[8px]">
-            <p className="font-semibold text-[13px] text-white/50">My Map</p>
+            <p className="text-[13px] text-white/50" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>My Map</p>
           </Link>
         </div>
       </div>
@@ -106,10 +106,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col gap-[74px]">
           {/* Section Header */}
           <div className="flex flex-col gap-2">
-            <h2 className="font-bold text-[30px] text-white tracking-[-0.75px] uppercase" style={{ fontFamily: 'Helvetica Neue, Noto Sans KR', fontWeight: 700 }}>
+            <h2 className="text-[30px] text-white tracking-[-0.75px] uppercase" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 700 }}>
             이번달 인기 빵지순례코스
           </h2>
-            <p className="font-semibold text-[18px] text-[#9a8779]">
+            <p className="text-[18px] text-[#9a8779]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>
             매달 1일부터 가장 추천 많은 순위로 정해져요
           </p>
         </div>
@@ -172,7 +172,7 @@ function RankCard({
               <p className="text-[20px] text-[#473327] leading-[140%]" style={{ fontFamily: 'BagelFatOne, cursive', fontWeight: 400 }}>
                 {rank}위
               </p>
-              <p className="font-semibold text-[24px] text-[#473327] leading-[140%]">
+              <p className="text-[24px] text-[#473327] leading-[140%]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>
                 {courseName}
               </p>
             </div>
@@ -185,7 +185,7 @@ function RankCard({
               alt="Thumbs Up"
               className="size-[40px] object-contain"
             />
-            <p className="font-semibold text-[32px] text-[#473327] whitespace-nowrap leading-[140%]">
+            <p className="text-[32px] text-[#473327] whitespace-nowrap leading-[140%]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>
               {recommendations}
             </p>
           </div>

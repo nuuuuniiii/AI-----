@@ -7,7 +7,21 @@ import { KoreaMapWithBreadIcon, MapBreadIcon } from '@/components/Icons';
 import RoadModal from '@/components/RoadModal';
 
 // Sample data for different courses
-const courseData: { [key: string]: any } = {
+interface Shop {
+  name: string;
+  hours: string;
+  rating: number;
+  review: string;
+  image: string;
+}
+
+interface CourseData {
+  location: string;
+  recommendations: number;
+  shops: Shop[];
+}
+
+const courseData: { [key: string]: CourseData } = {
   '강릉': {
     location: '강릉',
     recommendations: 127,
@@ -35,7 +49,186 @@ const courseData: { [key: string]: any } = {
       }
     ]
   },
-  // Add more course data as needed
+  '포천': {
+    location: '포천',
+    recommendations: 89,
+    shops: [
+      {
+        name: '포천베이커리',
+        hours: '오전 7시~오후6시 / 매주 화요일 휴무',
+        rating: 4.2,
+        review: '신선한 빵이 맛있는 집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '산골빵집',
+        hours: '오전 8시~오후5시',
+        rating: 4.0,
+        review: '전통 빵이 맛있는 집',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '춘천': {
+    location: '춘천',
+    recommendations: 156,
+    shops: [
+      {
+        name: '춘천빵집',
+        hours: '오전 8시~오후7시 / 매주 월요일 휴무',
+        rating: 4.1,
+        review: '춘천 특산 빵이 맛있는 집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '호수빵집',
+        hours: '오전 9시~오후6시',
+        rating: 3.9,
+        review: '호수 근처 빵집',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '망원': {
+    location: '망원',
+    recommendations: 203,
+    shops: [
+      {
+        name: '망원동빵집',
+        hours: '오전 8시~오후8시 / 매주 일요일 휴무',
+        rating: 4.3,
+        review: '망원동 대표 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '한강빵집',
+        hours: '오전 7시~오후9시',
+        rating: 4.0,
+        review: '한강 근처 빵집',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '성수': {
+    location: '성수',
+    recommendations: 178,
+    shops: [
+      {
+        name: '성수빵집',
+        hours: '오전 8시~오후7시 / 매주 화요일 휴무',
+        rating: 4.2,
+        review: '성수동 대표 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '성수베이커리',
+        hours: '오전 9시~오후6시',
+        rating: 4.1,
+        review: '성수동 베이커리',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '서면': {
+    location: '서면',
+    recommendations: 145,
+    shops: [
+      {
+        name: '서면빵집',
+        hours: '오전 8시~오후8시 / 매주 월요일 휴무',
+        rating: 4.0,
+        review: '서면 대표 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '부산빵집',
+        hours: '오전 7시~오후9시',
+        rating: 3.8,
+        review: '부산 특산 빵집',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '서귀포': {
+    location: '서귀포',
+    recommendations: 92,
+    shops: [
+      {
+        name: '서귀포빵집',
+        hours: '오전 8시~오후6시 / 매주 일요일 휴무',
+        rating: 4.1,
+        review: '제주도 서귀포 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '제주빵집',
+        hours: '오전 9시~오후5시',
+        rating: 3.9,
+        review: '제주도 특산 빵집',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '전포': {
+    location: '전포',
+    recommendations: 134,
+    shops: [
+      {
+        name: '전포빵집',
+        hours: '오전 8시~오후7시 / 매주 화요일 휴무',
+        rating: 4.0,
+        review: '전포동 대표 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '전포베이커리',
+        hours: '오전 9시~오후6시',
+        rating: 3.8,
+        review: '전포동 베이커리',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '대전': {
+    location: '대전',
+    recommendations: 167,
+    shops: [
+      {
+        name: '대전빵집',
+        hours: '오전 8시~오후8시 / 매주 월요일 휴무',
+        rating: 4.2,
+        review: '대전 대표 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '대전베이커리',
+        hours: '오전 7시~오후9시',
+        rating: 4.0,
+        review: '대전 베이커리',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  },
+  '여수': {
+    location: '여수',
+    recommendations: 98,
+    shops: [
+      {
+        name: '여수빵집',
+        hours: '오전 8시~오후6시 / 매주 일요일 휴무',
+        rating: 4.1,
+        review: '여수 대표 빵집',
+        image: '/images/store-1st.png'
+      },
+      {
+        name: '여수베이커리',
+        hours: '오전 9시~오후5시',
+        rating: 3.9,
+        review: '여수 베이커리',
+        image: '/images/store-2nd.png'
+      }
+    ]
+  }
 };
 
 export default function MyMap() {
@@ -46,9 +239,6 @@ export default function MyMap() {
     setSelectedCourse(name);
   };
 
-  const handleCloseModal = () => {
-    setSelectedCourse(null);
-  };
 
   const handleEdit = () => {
     // TODO: Navigate to edit page or open edit modal
@@ -152,7 +342,7 @@ export default function MyMap() {
         </div>
 
         {/* Map Container */}
-        <div className="flex gap-[87px] items-center pb-[75px] pl-[97px] pr-[70px] pt-[69px] w-full">
+        <div className="relative pb-[75px] pl-[97px] pr-[70px] pt-[69px] w-full">
           {/* Map Section */}
           <div className="relative w-[672px] h-[1054px]">
             <KoreaMapWithBreadIcon />
@@ -172,17 +362,17 @@ export default function MyMap() {
             </div>
           </div>
           
-          {/* Modal Section */}
-          {selectedCourse && courseData[selectedCourse] ? (
-            <RoadModal
-              location={courseData[selectedCourse].location}
-              recommendations={courseData[selectedCourse].recommendations}
-              shops={courseData[selectedCourse].shops}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-            />
-          ) : (
-            <div className="w-[590px]" />
+          {/* Fixed Position RoadModal */}
+          {selectedCourse && courseData[selectedCourse] && (
+            <div className="absolute top-[172.5px] right-[33px]">
+              <RoadModal
+                location={courseData[selectedCourse].location}
+                recommendations={courseData[selectedCourse].recommendations}
+                shops={courseData[selectedCourse].shops}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            </div>
           )}
         </div>
       </div>

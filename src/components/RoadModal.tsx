@@ -1,6 +1,7 @@
 'use client';
 
 import RoadCard from './RoadCard';
+import { ThumbsUpIconWhite } from './Icons';
 
 interface RoadModalProps {
   location: string;
@@ -24,7 +25,7 @@ export default function RoadModal({ location, recommendations, shops, onEdit, on
           {location}
         </p>
         <div className="flex gap-[10px] items-center">
-          <img src="/images/Tumbsup icon_brown.png" alt="Thumbs Up" className="size-[40px] object-contain" />
+          <ThumbsUpIconWhite />
           <p className="font-semibold text-[32px] text-white whitespace-pre">
             {recommendations}
           </p>
@@ -33,7 +34,7 @@ export default function RoadModal({ location, recommendations, shops, onEdit, on
       <div className="flex flex-col gap-[20px] items-start w-full">
         <div className="flex flex-col gap-[30px] items-start w-full">
           {shops.map((shop, index) => (
-            <RoadCard key={index} {...shop} />
+            <RoadCard key={index} {...shop} order={index + 1} />
           ))}
         </div>
         <div className="flex gap-[16px] items-center w-full">

@@ -1,27 +1,25 @@
-"use client"
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
+import { useState } from 'react';
+import Link from 'next/link';
 
 // 이미지 상수들 (Figma에서 가져온 이미지들)
-const imgBreadroadMainLogo = "http://localhost:3845/assets/a838ee61ea2dfe4010412a285dfef05058eec7d5.png"
-const imgProfile = "http://localhost:3845/assets/acce75ea1badd59ba5f146cddfea8fc1075c39c9.png"
-const img = "http://localhost:3845/assets/82e1c3ae3c7c8d90232a432e1022ae7bb98d52fb.svg"
-const imgSiPinFill = "http://localhost:3845/assets/7a6114bfad87b12dbcd33dc5b5931079a893a36e.svg"
-const img1 = "http://localhost:3845/assets/f60aa8e5dfb6a3e9d4eb42adbd74b7931745dfed.svg"
-const img2 = "http://localhost:3845/assets/9a432e408770638a6e3bf02e21d34e48da114c3d.svg"
-const img3 = "http://localhost:3845/assets/e27adcea3e680f33214ebb38cd945590ba6e810e.svg"
-const img4 = "http://localhost:3845/assets/7f12ea1300756f144a0fb5daaf68dbfc01103a46.png"
-const img5 = "http://localhost:3845/assets/5789783fae643c6e047e16c00ff331c4c98f60b9.svg"
-const img6 = "http://localhost:3845/assets/8014bbe825147d61b8e56e07c88adeee7838cff7.svg"
-const img7 = "http://localhost:3845/assets/0d5143ff295d7dc9a64432933e8b06afbca79060.svg"
-const img8 = "http://localhost:3845/assets/be7b0ae62c52858011b43d5c0acf24af72210a1a.svg"
-const img9 = "http://localhost:3845/assets/476b1d21873811e57c196462ae7c7d545273d37c.svg"
-const img10 = "http://localhost:3845/assets/25a5935e4afa605c24171eca388f88bbafcc5139.svg"
-const img11 = "http://localhost:3845/assets/b6c10e770b9317051fb29abd2f83bc26e315ab05.svg"
-const img12 = "http://localhost:3845/assets/5770549b50f727539afba3123bee769ea208bdef.svg"
-const img13 = "http://localhost:3845/assets/1e902cc58efc46f5191f800075424ff96151cc81.svg"
+const imgBreadroadMainLogo = "http://localhost:3845/assets/a838ee61ea2dfe4010412a285dfef05058eec7d5.png";
+const imgProfile = "http://localhost:3845/assets/acce75ea1badd59ba5f146cddfea8fc1075c39c9.png";
+const img = "http://localhost:3845/assets/82e1c3ae3c7c8d90232a432e1022ae7bb98d52fb.svg";
+const imgSiPinFill = "http://localhost:3845/assets/7a6114bfad87b12dbcd33dc5b5931079a893a36e.svg";
+const img1 = "http://localhost:3845/assets/f60aa8e5dfb6a3e9d4eb42adbd74b7931745dfed.svg";
+const img2 = "http://localhost:3845/assets/9a432e408770638a6e3bf02e21d34e48da114c3d.svg";
+const img3 = "http://localhost:3845/assets/e27adcea3e680f33214ebb38cd945590ba6e810e.svg";
+const img4 = "http://localhost:3845/assets/7f12ea1300756f144a0fb5daaf68dbfc01103a46.png";
+const img5 = "http://localhost:3845/assets/5789783fae643c6e047e16c00ff331c4c98f60b9.svg";
+const img6 = "http://localhost:3845/assets/8014bbe825147d61b8e56e07c88adeee7838cff7.svg";
+const img7 = "http://localhost:3845/assets/0d5143ff295d7dc9a64432933e8b06afbca79060.svg";
+const img8 = "http://localhost:3845/assets/be7b0ae62c52858011b43d5c0acf24af72210a1a.svg";
+const img9 = "http://localhost:3845/assets/476b1d21873811e57c196462ae7c7d545273d37c.svg";
+const img10 = "http://localhost:3845/assets/25a5935e4afa605c24171eca388f88bbafcc5139.svg";
+const img11 = "http://localhost:3845/assets/b6c10e770b9317051fb29abd2f83bc26e315ab05.svg";
+const img12 = "http://localhost:3845/assets/5770549b50f727539afba3123bee769ea208bdef.svg";
 
 // GnbBtn 컴포넌트
 function GnbBtn({ children, isActive = false, href }: { 
@@ -39,12 +37,12 @@ function GnbBtn({ children, isActive = false, href }: {
         {children}
       </p>
     </div>
-  )
+  );
 
   if (href) {
-    return <Link href={href}>{content}</Link>
+    return <Link href={href}>{content}</Link>;
   }
-  return content
+  return content;
 }
 
 // MainInput 컴포넌트
@@ -62,7 +60,7 @@ function MainInput() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // GNB 컴포넌트
@@ -98,7 +96,7 @@ function Gnb() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // BakeryCard 컴포넌트
@@ -110,12 +108,12 @@ function BakeryCard({
   canMoveUp, 
   canMoveDown 
 }: { 
-  index: number
-  onMoveUp: () => void
-  onMoveDown: () => void
-  onDelete: () => void
-  canMoveUp: boolean
-  canMoveDown: boolean
+  index: number;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
+  onDelete: () => void;
+  canMoveUp: boolean;
+  canMoveDown: boolean;
 }) {
   return (
     <div className="relative w-[768px]">
@@ -252,39 +250,39 @@ function BakeryCard({
         <img alt="" className="block max-w-none size-full" src={img10} />
       </div>
     </div>
-  )
+  );
 }
 
 export default function MyMapAdd() {
-  const [bakeryCards, setBakeryCards] = useState([1, 2, 3]) // 초기 3개 카드
+  const [bakeryCards, setBakeryCards] = useState([1, 2, 3]); // 초기 3개 카드
 
   const addBakeryCard = () => {
-    setBakeryCards([...bakeryCards, bakeryCards.length + 1])
-  }
+    setBakeryCards([...bakeryCards, bakeryCards.length + 1]);
+  };
 
   const deleteBakeryCard = (index: number) => {
-    setBakeryCards(bakeryCards.filter((_, i) => i !== index))
-  }
+    setBakeryCards(bakeryCards.filter((_, i) => i !== index));
+  };
 
   const moveCardUp = (index: number) => {
     if (index > 0) {
-      const newCards = [...bakeryCards]
-      const temp = newCards[index]
-      newCards[index] = newCards[index - 1]
-      newCards[index - 1] = temp
-      setBakeryCards(newCards)
+      const newCards = [...bakeryCards];
+      const temp = newCards[index];
+      newCards[index] = newCards[index - 1];
+      newCards[index - 1] = temp;
+      setBakeryCards(newCards);
     }
-  }
+  };
 
   const moveCardDown = (index: number) => {
     if (index < bakeryCards.length - 1) {
-      const newCards = [...bakeryCards]
-      const temp = newCards[index]
-      newCards[index] = newCards[index + 1]
-      newCards[index + 1] = temp
-      setBakeryCards(newCards)
+      const newCards = [...bakeryCards];
+      const temp = newCards[index];
+      newCards[index] = newCards[index + 1];
+      newCards[index + 1] = temp;
+      setBakeryCards(newCards);
     }
-  }
+  };
 
   return (
     <div className="bg-white flex flex-col items-start pb-[84px] pt-0 px-0 relative w-full min-h-screen">
@@ -402,5 +400,6 @@ export default function MyMapAdd() {
         </div>
       </div>
     </div>
-  )
+  );
 }
+
