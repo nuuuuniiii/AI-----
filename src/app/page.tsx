@@ -50,9 +50,9 @@ export default function Home() {
           <button className="bg-[rgba(255,255,255,0.15)] rounded-[8px] px-[24px] py-[8px]">
             <p className="text-[13px] text-white" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>Home</p>
           </button>
-          <button className="rounded-[8px] px-[24px] py-[8px]">
+          <Link href="/explore" className="rounded-[8px] px-[24px] py-[8px]">
             <p className="text-[13px] text-white/50" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>Others</p>
-          </button>
+          </Link>
           <Link href="/my-map" className="rounded-[8px] px-[24px] py-[8px]">
             <p className="text-[13px] text-white/50" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>My Map</p>
           </Link>

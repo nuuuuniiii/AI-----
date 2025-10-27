@@ -1,51 +1,146 @@
-export interface UserRanking {
-  id: string;
-  nickname: string;
-  reviewCount: number;
-  rank: number;
-}
+import { UserRanking } from '@/types/data'
 
 export const userRankingData: UserRanking[] = [
   {
-    id: "user1",
-    nickname: "김밥천국",
-    reviewCount: 119,
-    rank: 1
+    "id": "user_001",
+    "userId": "user_001",
+    "nickname": "빵지순례마스터",
+    "profileImage": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 45,
+    "reviewCount": 45,
+    "rank": 1,
+    "level": "빵지순례 마스터",
+    "region": "서울",
+    "lastActiveAt": "2024-01-20T14:22:00Z",
+    "totalCourses": 12,
+    "totalRecommendations": 89
   },
   {
-    id: "user2", 
-    nickname: "빵의 정석",
-    reviewCount: 101,
-    rank: 2
+    "id": "user_002",
+    "userId": "user_002",
+    "nickname": "달콤한순례자",
+    "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 38,
+    "reviewCount": 38,
+    "rank": 2,
+    "level": "빵지순례 전문가",
+    "region": "제주",
+    "lastActiveAt": "2024-01-19T16:45:00Z",
+    "totalCourses": 10,
+    "totalRecommendations": 67
   },
   {
-    id: "user3",
-    nickname: "달콤한 하루",
-    reviewCount: 99,
-    rank: 3
+    "id": "user_003",
+    "userId": "user_003",
+    "nickname": "빵집헌터",
+    "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 32,
+    "reviewCount": 32,
+    "rank": 3,
+    "level": "빵지순례 전문가",
+    "region": "부산",
+    "lastActiveAt": "2024-01-18T11:30:00Z",
+    "totalCourses": 8,
+    "totalRecommendations": 54
   },
   {
-    id: "user4",
-    nickname: "바게뜨 매니아",
-    reviewCount: 89,
-    rank: 4
+    "id": "user_004",
+    "userId": "user_004",
+    "nickname": "크루아상러버",
+    "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 28,
+    "reviewCount": 28,
+    "rank": 4,
+    "level": "빵지순례 중급자",
+    "region": "대전",
+    "lastActiveAt": "2024-01-17T13:15:00Z",
+    "totalCourses": 7,
+    "totalRecommendations": 43
   },
   {
-    id: "user5",
-    nickname: "케이크무스",
-    reviewCount: 87,
-    rank: 5
+    "id": "user_005",
+    "userId": "user_005",
+    "nickname": "빵의여행자",
+    "profileImage": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 25,
+    "reviewCount": 25,
+    "rank": 5,
+    "level": "빵지순례 중급자",
+    "region": "대구",
+    "lastActiveAt": "2024-01-16T09:45:00Z",
+    "totalCourses": 6,
+    "totalRecommendations": 38
   },
   {
-    id: "user6",
-    nickname: "막가롱",
-    reviewCount: 84,
-    rank: 6
+    "id": "user_006",
+    "userId": "user_006",
+    "nickname": "디저트퀸",
+    "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 22,
+    "reviewCount": 22,
+    "rank": 6,
+    "level": "빵지순례 중급자",
+    "region": "광주",
+    "lastActiveAt": "2024-01-15T17:20:00Z",
+    "totalCourses": 5,
+    "totalRecommendations": 35
   },
   {
-    id: "user7",
-    nickname: "두바이초코",
-    reviewCount: 78,
-    rank: 7
+    "id": "user_007",
+    "userId": "user_007",
+    "nickname": "바게트킹",
+    "profileImage": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 19,
+    "reviewCount": 19,
+    "rank": 7,
+    "level": "빵지순례 초급자",
+    "region": "부산",
+    "lastActiveAt": "2024-01-14T14:30:00Z",
+    "totalCourses": 4,
+    "totalRecommendations": 29
+  },
+  {
+    "id": "user_008",
+    "userId": "user_008",
+    "nickname": "소금빵매니아",
+    "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 16,
+    "reviewCount": 16,
+    "rank": 8,
+    "level": "빵지순례 초급자",
+    "region": "서울",
+    "lastActiveAt": "2024-01-13T12:10:00Z",
+    "totalCourses": 4,
+    "totalRecommendations": 24
+  },
+  {
+    "id": "user_009",
+    "userId": "user_009",
+    "nickname": "제주빵순이",
+    "profileImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 14,
+    "reviewCount": 14,
+    "rank": 9,
+    "level": "빵지순례 초급자",
+    "region": "제주",
+    "lastActiveAt": "2024-01-12T10:25:00Z",
+    "totalCourses": 3,
+    "totalRecommendations": 21
+  },
+  {
+    "id": "user_010",
+    "userId": "user_010",
+    "nickname": "감귤빵러버",
+    "profileImage": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop&crop=face",
+    "reviewUploadCount": 12,
+    "reviewCount": 12,
+    "rank": 10,
+    "level": "빵지순례 초급자",
+    "region": "제주",
+    "lastActiveAt": "2024-01-11T08:40:00Z",
+    "totalCourses": 3,
+    "totalRecommendations": 18
   }
-];
+]
+
+export default userRankingData
