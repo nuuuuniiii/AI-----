@@ -1,0 +1,21 @@
+id,email,nickname,profile_image,level,region,review_count,total_courses,total_recommendations,last_active_at,created_at,updated_at
+u001,u001@example.com,지현빵순이,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile2.jpg,빵지순례 초급자,서울,30,9,48,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u002,u002@example.com,민수단팥러버,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile3.jpg,빵지순례 초급자,서울,38,5,2,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u003,u003@example.com,서연스콘덕후,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile4.jpg,빵지순례 초급자,서울,30,5,19,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u004,u004@example.com,정웅스콘덕후,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile5.jpg,빵지순례 초급자,서울,13,9,8,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u005,u005@example.com,준호스콘덕후,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile6.jpg,빵지순례 초급자,서울,24,6,22,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u006,u006@example.com,정식단팥러버,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile7.jpg,빵지순례 초급자,서울,10,5,43,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u007,u007@example.com,미영단팥러버,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile8.jpg,빵지순례 초급자,서울,14,2,30,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z,2025-10-27T06:13:05.832Z
+u008,u008@example.com,은경빵순이,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile9.jpg,빵지순례 초급자,서울,6,1,23,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u009,u009@example.com,민지크로플러,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile10.jpg,빵지순례 초급자,서울,25,6,45,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u010,u010@example.com,진우크로플러,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile1.jpg,빵지순례 초급자,서울,34,10,43,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u011,u011@example.com,정훈스콘덕후,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile2.jpg,빵지순례 초급자,서울,24,8,4,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u012,u012@example.com,예지빵순이,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile3.jpg,빵지순례 초급자,서울,29,1,5,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u013,u013@example.com,예진크로플러,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile4.jpg,빵지순례 초급자,서울,19,4,27,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u014,u014@example.com,재호단팥러버,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile5.jpg,빵지순례 초급자,서울,31,8,39,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u015,u015@example.com,시우크로플러,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile6.jpg,빵지순례 초급자,서울,34,1,8,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u016,u016@example.com,혜진스콘덕후,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile7.jpg,빵지순례 초급자,서울,11,5,13,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u017,u017@example.com,영수단팥러버,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile8.jpg,빵지순례 초급자,서울,35,10,30,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u018,u018@example.com,현준크로플러,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile9.jpg,빵지순례 초급자,서울,39,7,30,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u019,u019@example.com,영일빵순이,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile10.jpg,빵지순례 초급자,서울,15,9,1,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+u020,u020@example.com,영철빵순이,https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile1.jpg,빵지순례 초급자,서울,22,7,45,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z

@@ -1,0 +1,21 @@
+bakery_id,course_id,bakery_name,address,latitude,longitude,operating_days,operating_hours,image_url,avg_rating
+b001,c017,유한회사 김장윤,부산광역시 동구 반포대길,35.193179,126.011367,"[""Mon"",""Wed"",""Sun"",""Tue"",""Sat""]",11:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery2.jpg,3.7
+b002,c015,윤조,광주광역시 용산구 서초중앙거리 (예은박마을),38.432504,127.815215,"[""Tue"",""Sat"",""Fri"",""Thu"",""Wed""]",10:00-19:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery3.jpg,4.6
+b003,c019,(유) 이,인천광역시 마포구 역삼로,33.645367,127.196776,"[""Fri"",""Mon"",""Wed"",""Tue"",""Thu""]",8:00-18:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery4.jpg,3.5
+b004,c014,(주) 임이이,서울특별시 강남구 서초대거리 (상철김양면),36.982735,126.242436,"[""Sat"",""Tue"",""Sun"",""Fri"",""Thu""]",8:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery5.jpg,3.9
+b005,c006,주식회사 김,광주광역시 광진구 서초대924거리 (경수이읍),33.272197,127.369918,"[""Sat"",""Tue"",""Fri"",""Sun"",""Wed""]",11:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery6.jpg,4
+b006,c007,주식회사 권이서,대구광역시 성동구 봉은사로 (명자조한리),36.887784,126.400599,"[""Mon"",""Wed"",""Sun"",""Fri"",""Thu""]",9:00-21:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery7.jpg,4.6
+b007,c011,오이,부산광역시 서초구 삼성66로 (보람홍김마을),36.804452,127.265684,"[""Tue"",""Sun"",""Thu"",""Wed"",""Mon""]",10:00-19:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery8.jpg,4.7
+b008,c018,주식회사 배이김,경상북도 서산시 개포3가 (민준최면),36.941427,128.199652,"[""Wed"",""Tue"",""Thu"",""Fri"",""Mon""]",11:00-21:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery9.jpg,4.5
+b009,c016,(주) 손박최,대구광역시 금천구 개포가,37.63511,127.802565,"[""Sun"",""Wed"",""Fri"",""Tue"",""Mon""]",10:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery10.jpg,3.6
+b010,c014,조정,대전광역시 송파구 가락길,33.129861,128.464031,"[""Fri"",""Mon"",""Sun"",""Thu"",""Tue""]",10:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery1.jpg,4.7
+b011,c002,(주) 김,부산광역시 강남구 역삼158거리,36.424077,128.988339,"[""Wed"",""Sat"",""Sun"",""Mon"",""Tue""]",8:00-18:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery2.jpg,4.8
+b012,c009,(주) 강서윤,부산광역시 마포구 테헤란22길 (영진김이동),34.467858,126.64662,"[""Wed"",""Sun"",""Thu"",""Mon"",""Fri""]",10:00-18:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery3.jpg,4.8
+b013,c018,(주) 최,인천광역시 북구 도산대0로,37.154536,126.32917,"[""Mon"",""Sat"",""Tue"",""Thu"",""Sun""]",9:00-18:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery4.jpg,3.7
+b014,c019,주식회사 김,강원도 수원시 양재천길,38.146934,126.755364,"[""Tue"",""Fri"",""Sun"",""Sat"",""Mon""]",11:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery5.jpg,4.4
+b015,c005,김이,부산광역시 영등포구 삼성31길,37.511724,126.349184,"[""Sun"",""Fri"",""Sat"",""Wed"",""Thu""]",10:00-21:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery6.jpg,3.6
+b016,c019,주식회사 강주심,서울특별시 성동구 강남대로,33.541763,126.089501,"[""Thu"",""Tue"",""Fri"",""Sun"",""Sat""]",8:00-21:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery7.jpg,4.3
+b017,c017,김이,인천광역시 서초구 반포대430거리 (민수한강리),38.294032,127.341746,"[""Tue"",""Fri"",""Sat"",""Sun"",""Thu""]",11:00-20:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery8.jpg,4.6
+b018,c014,(유) 박이유,경기도 가평군 도산대거리,37.413939,127.050719,"[""Thu"",""Mon"",""Sat"",""Sun"",""Tue""]",11:00-21:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery9.jpg,4.5
+b019,c005,유한회사 김,전라북도 하남시 서초대로,33.300867,126.156037,"[""Thu"",""Fri"",""Mon"",""Wed"",""Sun""]",9:00-18:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery10.jpg,4.3
+b020,c015,김김권,제주특별자치도 서산시 테헤란로,33.187623,127.282988,"[""Tue"",""Sun"",""Wed"",""Thu"",""Sat""]",11:00-17:00,https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery1.jpg,3.8

@@ -1,0 +1,102 @@
+[
+  {
+    "course_id": "c001",
+    "user_id": "u003",
+    "created_at": "2025-10-21T05:37:03.890962"
+  },
+  {
+    "course_id": "c018",
+    "user_id": "u007",
+    "created_at": "2025-10-03T05:37:03.890969"
+  },
+  {
+    "course_id": "c014",
+    "user_id": "u004",
+    "created_at": "2025-10-04T05:37:03.890974"
+  },
+  {
+    "course_id": "c019",
+    "user_id": "u004",
+    "created_at": "2025-10-01T05:37:03.890978"
+  },
+  {
+    "course_id": "c017",
+    "user_id": "u009",
+    "created_at": "2025-10-04T05:37:03.890983"
+  },
+  {
+    "course_id": "c004",
+    "user_id": "u011",
+    "created_at": "2025-10-04T05:37:03.890987"
+  },
+  {
+    "course_id": "c007",
+    "user_id": "u014",
+    "created_at": "2025-10-21T05:37:03.890997"
+  },
+  {
+    "course_id": "c016",
+    "user_id": "u009",
+    "created_at": "2025-10-02T05:37:03.891003"
+  },
+  {
+    "course_id": "c020",
+    "user_id": "u002",
+    "created_at": "2025-10-27T05:37:03.891009"
+  },
+  {
+    "course_id": "c008",
+    "user_id": "u008",
+    "created_at": "2025-09-27T05:37:03.891013"
+  },
+  {
+    "course_id": "c012",
+    "user_id": "u008",
+    "created_at": "2025-10-10T05:37:03.891017"
+  },
+  {
+    "course_id": "c010",
+    "user_id": "u006",
+    "created_at": "2025-10-13T05:37:03.891021"
+  },
+  {
+    "course_id": "c016",
+    "user_id": "u001",
+    "created_at": "2025-10-20T05:37:03.891025"
+  },
+  {
+    "course_id": "c013",
+    "user_id": "u015",
+    "created_at": "2025-10-09T05:37:03.891029"
+  },
+  {
+    "course_id": "c019",
+    "user_id": "u003",
+    "created_at": "2025-10-15T05:37:03.891033"
+  },
+  {
+    "course_id": "c020",
+    "user_id": "u009",
+    "created_at": "2025-09-28T05:37:03.891036"
+  },
+  {
+    "course_id": "c005",
+    "user_id": "u002",
+    "created_at": "2025-10-02T05:37:03.891040"
+  },
+  {
+    "course_id": "c004",
+    "user_id": "u009",
+    "created_at": "2025-10-24T05:37:03.891044"
+  },
+  {
+    "course_id": "c008",
+    "user_id": "u001",
+    "created_at": "2025-10-27T05:37:03.891048"
+  },
+  {
+    "course_id": "c020",
+    "user_id": "u016",
+    "created_at": "2025-10-01T05:37:03.891052"
+  }
+]

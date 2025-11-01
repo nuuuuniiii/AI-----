@@ -1,0 +1,362 @@
+[
+  {
+    "course_id": "c001",
+    "user_id": "u006",
+    "course_name": "정식단팥러버의 바삭한 빵 코스",
+    "region": "강릉",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course2.jpg",
+    "recommend_count": 49,
+    "bakeries": [
+      {
+        "bakery_id": "b001",
+        "bakery_name": "(주) 김"
+      },
+      {
+        "bakery_id": "b002",
+        "bakery_name": "유한회사 하박이"
+      }
+    ]
+  },
+  {
+    "course_id": "c002",
+    "user_id": "u019",
+    "course_name": "영일빵순이의 고소한 빵 코스",
+    "region": "강릉",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course3.jpg",
+    "recommend_count": 27,
+    "bakeries": [
+      {
+        "bakery_id": "b003",
+        "bakery_name": "김박이"
+      },
+      {
+        "bakery_id": "b004",
+        "bakery_name": "최박"
+      }
+    ]
+  },
+  {
+    "course_id": "c003",
+    "user_id": "u011",
+    "course_name": "정훈스콘덕후의 달콤한 빵 코스",
+    "region": "강릉",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course4.jpg",
+    "recommend_count": 52,
+    "bakeries": [
+      {
+        "bakery_id": "b005",
+        "bakery_name": "(유) 김이구"
+      },
+      {
+        "bakery_id": "b006",
+        "bakery_name": "김김"
+      }
+    ]
+  },
+  {
+    "course_id": "c004",
+    "user_id": "u017",
+    "course_name": "영수단팥러버의 바삭한 빵 코스",
+    "region": "광주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course5.jpg",
+    "recommend_count": 58,
+    "bakeries": [
+      {
+        "bakery_id": "b007",
+        "bakery_name": "주식회사 강"
+      },
+      {
+        "bakery_id": "b008",
+        "bakery_name": "박이"
+      }
+    ]
+  },
+  {
+    "course_id": "c005",
+    "user_id": "u019",
+    "course_name": "영일빵순이의 향긋한 빵 코스",
+    "region": "인천",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course6.jpg",
+    "recommend_count": 82,
+    "bakeries": [
+      {
+        "bakery_id": "b009",
+        "bakery_name": "김김노"
+      },
+      {
+        "bakery_id": "b010",
+        "bakery_name": "(유) 권김안"
+      }
+    ]
+  },
+  {
+    "course_id": "c006",
+    "user_id": "u019",
+    "course_name": "영일빵순이의 바삭한 빵 코스",
+    "region": "전주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course7.jpg",
+    "recommend_count": 14,
+    "bakeries": [
+      {
+        "bakery_id": "b011",
+        "bakery_name": "김김"
+      },
+      {
+        "bakery_id": "b012",
+        "bakery_name": "(유) 박박김"
+      }
+    ]
+  },
+  {
+    "course_id": "c007",
+    "user_id": "u011",
+    "course_name": "정훈스콘덕후의 향긋한 빵 코스",
+    "region": "대구",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course8.jpg",
+    "recommend_count": 100,
+    "bakeries": [
+      {
+        "bakery_id": "b013",
+        "bakery_name": "주식회사 백"
+      },
+      {
+        "bakery_id": "b014",
+        "bakery_name": "김이이"
+      }
+    ]
+  },
+  {
+    "course_id": "c008",
+    "user_id": "u002",
+    "course_name": "민수단팥러버의 향긋한 빵 코스",
+    "region": "강릉",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course9.jpg",
+    "recommend_count": 11,
+    "bakeries": [
+      {
+        "bakery_id": "b015",
+        "bakery_name": "(유) 김배김"
+      },
+      {
+        "bakery_id": "b016",
+        "bakery_name": "박박남"
+      }
+    ]
+  },
+  {
+    "course_id": "c009",
+    "user_id": "u013",
+    "course_name": "예진크로플러의 바삭한 빵 코스",
+    "region": "인천",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course10.jpg",
+    "recommend_count": 22,
+    "bakeries": [
+      {
+        "bakery_id": "b017",
+        "bakery_name": "(주) 김"
+      },
+      {
+        "bakery_id": "b018",
+        "bakery_name": "(유) 김김조"
+      }
+    ]
+  },
+  {
+    "course_id": "c010",
+    "user_id": "u003",
+    "course_name": "서연스콘덕후의 달콤한 빵 코스",
+    "region": "전주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course1.jpg",
+    "recommend_count": 77,
+    "bakeries": [
+      {
+        "bakery_id": "b019",
+        "bakery_name": "신이"
+      },
+      {
+        "bakery_id": "b020",
+        "bakery_name": "이안"
+      }
+    ]
+  },
+  {
+    "course_id": "c011",
+    "user_id": "u010",
+    "course_name": "진우크로플러의 바삭한 빵 코스",
+    "region": "대구",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course2.jpg",
+    "recommend_count": 50,
+    "bakeries": [
+      {
+        "bakery_id": "b021",
+        "bakery_name": "유한회사 김"
+      },
+      {
+        "bakery_id": "b022",
+        "bakery_name": "송김윤"
+      }
+    ]
+  },
+  {
+    "course_id": "c012",
+    "user_id": "u020",
+    "course_name": "영철빵순이의 바삭한 빵 코스",
+    "region": "인천",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course3.jpg",
+    "recommend_count": 49,
+    "bakeries": [
+      {
+        "bakery_id": "b023",
+        "bakery_name": "주식회사 김이진"
+      },
+      {
+        "bakery_id": "b024",
+        "bakery_name": "주식회사 윤이박"
+      }
+    ]
+  },
+  {
+    "course_id": "c013",
+    "user_id": "u014",
+    "course_name": "재호단팥러버의 향긋한 빵 코스",
+    "region": "전주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course4.jpg",
+    "recommend_count": 100,
+    "bakeries": [
+      {
+        "bakery_id": "b025",
+        "bakery_name": "주식회사 김이김"
+      },
+      {
+        "bakery_id": "b026",
+        "bakery_name": "류고"
+      }
+    ]
+  },
+  {
+    "course_id": "c014",
+    "user_id": "u014",
+    "course_name": "재호단팥러버의 고소한 빵 코스",
+    "region": "제주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course5.jpg",
+    "recommend_count": 34,
+    "bakeries": [
+      {
+        "bakery_id": "b027",
+        "bakery_name": "주식회사 이"
+      },
+      {
+        "bakery_id": "b028",
+        "bakery_name": "전장이"
+      }
+    ]
+  },
+  {
+    "course_id": "c015",
+    "user_id": "u017",
+    "course_name": "영수단팥러버의 바삭한 빵 코스",
+    "region": "광주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course6.jpg",
+    "recommend_count": 81,
+    "bakeries": [
+      {
+        "bakery_id": "b029",
+        "bakery_name": "이김"
+      },
+      {
+        "bakery_id": "b030",
+        "bakery_name": "(주) 김박김"
+      }
+    ]
+  },
+  {
+    "course_id": "c016",
+    "user_id": "u018",
+    "course_name": "현준크로플러의 향긋한 빵 코스",
+    "region": "제주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course7.jpg",
+    "recommend_count": 61,
+    "bakeries": [
+      {
+        "bakery_id": "b031",
+        "bakery_name": "이박"
+      },
+      {
+        "bakery_id": "b032",
+        "bakery_name": "주식회사 장황박"
+      }
+    ]
+  },
+  {
+    "course_id": "c017",
+    "user_id": "u014",
+    "course_name": "재호단팥러버의 바삭한 빵 코스",
+    "region": "제주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course8.jpg",
+    "recommend_count": 45,
+    "bakeries": [
+      {
+        "bakery_id": "b033",
+        "bakery_name": "황송"
+      },
+      {
+        "bakery_id": "b034",
+        "bakery_name": "이박"
+      }
+    ]
+  },
+  {
+    "course_id": "c018",
+    "user_id": "u001",
+    "course_name": "지현빵순이의 달콤한 빵 코스",
+    "region": "서울",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course9.jpg",
+    "recommend_count": 10,
+    "bakeries": [
+      {
+        "bakery_id": "b035",
+        "bakery_name": "주식회사 서박김"
+      },
+      {
+        "bakery_id": "b036",
+        "bakery_name": "허박이"
+      }
+    ]
+  },
+  {
+    "course_id": "c019",
+    "user_id": "u006",
+    "course_name": "정식단팥러버의 향긋한 빵 코스",
+    "region": "제주",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course10.jpg",
+    "recommend_count": 11,
+    "bakeries": [
+      {
+        "bakery_id": "b037",
+        "bakery_name": "(유) 백"
+      },
+      {
+        "bakery_id": "b038",
+        "bakery_name": "유한회사 최김이"
+      }
+    ]
+  },
+  {
+    "course_id": "c020",
+    "user_id": "u004",
+    "course_name": "정웅스콘덕후의 향긋한 빵 코스",
+    "region": "부산",
+    "thumbnail_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course1.jpg",
+    "recommend_count": 31,
+    "bakeries": [
+      {
+        "bakery_id": "b039",
+        "bakery_name": "민김"
+      },
+      {
+        "bakery_id": "b040",
+        "bakery_name": "허최"
+      }
+    ]
+  }
+]

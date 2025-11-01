@@ -1,0 +1,122 @@
+[
+  {
+    "user_id": "u001",
+    "nickname": "지현빵순이",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile2.jpg",
+    "review_count": 30
+  },
+  {
+    "user_id": "u002",
+    "nickname": "민수단팥러버",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile3.jpg",
+    "review_count": 38
+  },
+  {
+    "user_id": "u003",
+    "nickname": "서연스콘덕후",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile4.jpg",
+    "review_count": 30
+  },
+  {
+    "user_id": "u004",
+    "nickname": "정웅스콘덕후",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile5.jpg",
+    "review_count": 13
+  },
+  {
+    "user_id": "u005",
+    "nickname": "준호스콘덕후",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile6.jpg",
+    "review_count": 24
+  },
+  {
+    "user_id": "u006",
+    "nickname": "정식단팥러버",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile7.jpg",
+    "review_count": 10
+  },
+  {
+    "user_id": "u007",
+    "nickname": "미영단팥러버",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile8.jpg",
+    "review_count": 14
+  },
+  {
+    "user_id": "u008",
+    "nickname": "은경빵순이",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile9.jpg",
+    "review_count": 6
+  },
+  {
+    "user_id": "u009",
+    "nickname": "민지크로플러",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile10.jpg",
+    "review_count": 25
+  },
+  {
+    "user_id": "u010",
+    "nickname": "진우크로플러",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile1.jpg",
+    "review_count": 34
+  },
+  {
+    "user_id": "u011",
+    "nickname": "정훈스콘덕후",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile2.jpg",
+    "review_count": 24
+  },
+  {
+    "user_id": "u012",
+    "nickname": "예지빵순이",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile3.jpg",
+    "review_count": 29
+  },
+  {
+    "user_id": "u013",
+    "nickname": "예진크로플러",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile4.jpg",
+    "review_count": 19
+  },
+  {
+    "user_id": "u014",
+    "nickname": "재호단팥러버",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile5.jpg",
+    "review_count": 31
+  },
+  {
+    "user_id": "u015",
+    "nickname": "시우크로플러",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile6.jpg",
+    "review_count": 34
+  },
+  {
+    "user_id": "u016",
+    "nickname": "혜진스콘덕후",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile7.jpg",
+    "review_count": 11
+  },
+  {
+    "user_id": "u017",
+    "nickname": "영수단팥러버",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile8.jpg",
+    "review_count": 35
+  },
+  {
+    "user_id": "u018",
+    "nickname": "현준크로플러",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile9.jpg",
+    "review_count": 39
+  },
+  {
+    "user_id": "u019",
+    "nickname": "영일빵순이",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile10.jpg",
+    "review_count": 15
+  },
+  {
+    "user_id": "u020",
+    "nickname": "영철빵순이",
+    "profile_image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/profiles/profile1.jpg",
+    "review_count": 22
+  }
+]

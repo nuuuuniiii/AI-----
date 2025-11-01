@@ -1,0 +1,21 @@
+id,name,region,description,thumbnail_url,estimated_time,difficulty,total_distance,recommendation_count,created_by,created_at,updated_at
+c001,정식단팥러버의 바삭한 빵 코스,강릉,강릉 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course2.jpg,2-3시간,쉬움,5km,49,u006,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c002,영일빵순이의 고소한 빵 코스,강릉,강릉 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course3.jpg,2-3시간,쉬움,5km,27,u019,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c003,정훈스콘덕후의 달콤한 빵 코스,강릉,강릉 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course4.jpg,2-3시간,쉬움,5km,52,u011,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c004,영수단팥러버의 바삭한 빵 코스,광주,광주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course5.jpg,2-3시간,쉬움,5km,58,u017,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c005,영일빵순이의 향긋한 빵 코스,인천,인천 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course6.jpg,2-3시간,쉬움,5km,82,u019,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c006,영일빵순이의 바삭한 빵 코스,전주,전주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course7.jpg,2-3시간,쉬움,5km,14,u019,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c007,정훈스콘덕후의 향긋한 빵 코스,대구,대구 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course8.jpg,2-3시간,쉬움,5km,100,u011,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c008,민수단팥러버의 향긋한 빵 코스,강릉,강릉 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course9.jpg,2-3시간,쉬움,5km,11,u002,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c009,예진크로플러의 바삭한 빵 코스,인천,인천 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course10.jpg,2-3시간,쉬움,5km,22,u013,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c010,서연스콘덕후의 달콤한 빵 코스,전주,전주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course1.jpg,2-3시간,쉬움,5km,77,u003,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c011,진우크로플러의 바삭한 빵 코스,대구,대구 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course2.jpg,2-3시간,쉬움,5km,50,u010,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c012,영철빵순이의 바삭한 빵 코스,인천,인천 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course3.jpg,2-3시간,쉬움,5km,49,u020,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c013,재호단팥러버의 향긋한 빵 코스,전주,전주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course4.jpg,2-3시간,쉬움,5km,100,u014,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c014,재호단팥러버의 고소한 빵 코스,제주,제주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course5.jpg,2-3시간,쉬움,5km,34,u014,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c015,영수단팥러버의 바삭한 빵 코스,광주,광주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course6.jpg,2-3시간,쉬움,5km,81,u017,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c016,현준크로플러의 향긋한 빵 코스,제주,제주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course7.jpg,2-3시간,쉬움,5km,61,u018,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c017,재호단팥러버의 바삭한 빵 코스,제주,제주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course8.jpg,2-3시간,쉬움,5km,45,u014,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c018,지현빵순이의 달콤한 빵 코스,서울,서울 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course9.jpg,2-3시간,쉬움,5km,10,u001,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c019,정식단팥러버의 향긋한 빵 코스,제주,제주 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course10.jpg,2-3시간,쉬움,5km,11,u006,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z
+c020,정웅스콘덕후의 향긋한 빵 코스,부산,부산 지역의 맛있는 빵집들을 순례하는 코스입니다.,https://res.cloudinary.com/breadjourney/image/upload/v1/courses/course1.jpg,2-3시간,쉬움,5km,31,u004,2025-10-27T06:13:05.833Z,2025-10-27T06:13:05.833Z

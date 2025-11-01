@@ -1,0 +1,362 @@
+[
+  {
+    "bakery_id": "b001",
+    "course_id": "c017",
+    "bakery_name": "유한회사 김장윤",
+    "address": "부산광역시 동구 반포대길",
+    "latitude": 35.193179,
+    "longitude": 126.011367,
+    "operating_days": [
+      "Mon",
+      "Wed",
+      "Sun",
+      "Tue",
+      "Sat"
+    ],
+    "operating_hours": "11:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery2.jpg",
+    "avg_rating": 3.7
+  },
+  {
+    "bakery_id": "b002",
+    "course_id": "c015",
+    "bakery_name": "윤조",
+    "address": "광주광역시 용산구 서초중앙거리 (예은박마을)",
+    "latitude": 38.432504,
+    "longitude": 127.815215,
+    "operating_days": [
+      "Tue",
+      "Sat",
+      "Fri",
+      "Thu",
+      "Wed"
+    ],
+    "operating_hours": "10:00-19:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery3.jpg",
+    "avg_rating": 4.6
+  },
+  {
+    "bakery_id": "b003",
+    "course_id": "c019",
+    "bakery_name": "(유) 이",
+    "address": "인천광역시 마포구 역삼로",
+    "latitude": 33.645367,
+    "longitude": 127.196776,
+    "operating_days": [
+      "Fri",
+      "Mon",
+      "Wed",
+      "Tue",
+      "Thu"
+    ],
+    "operating_hours": "8:00-18:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery4.jpg",
+    "avg_rating": 3.5
+  },
+  {
+    "bakery_id": "b004",
+    "course_id": "c014",
+    "bakery_name": "(주) 임이이",
+    "address": "서울특별시 강남구 서초대거리 (상철김양면)",
+    "latitude": 36.982735,
+    "longitude": 126.242436,
+    "operating_days": [
+      "Sat",
+      "Tue",
+      "Sun",
+      "Fri",
+      "Thu"
+    ],
+    "operating_hours": "8:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery5.jpg",
+    "avg_rating": 3.9
+  },
+  {
+    "bakery_id": "b005",
+    "course_id": "c006",
+    "bakery_name": "주식회사 김",
+    "address": "광주광역시 광진구 서초대924거리 (경수이읍)",
+    "latitude": 33.272197,
+    "longitude": 127.369918,
+    "operating_days": [
+      "Sat",
+      "Tue",
+      "Fri",
+      "Sun",
+      "Wed"
+    ],
+    "operating_hours": "11:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery6.jpg",
+    "avg_rating": 4.0
+  },
+  {
+    "bakery_id": "b006",
+    "course_id": "c007",
+    "bakery_name": "주식회사 권이서",
+    "address": "대구광역시 성동구 봉은사로 (명자조한리)",
+    "latitude": 36.887784,
+    "longitude": 126.400599,
+    "operating_days": [
+      "Mon",
+      "Wed",
+      "Sun",
+      "Fri",
+      "Thu"
+    ],
+    "operating_hours": "9:00-21:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery7.jpg",
+    "avg_rating": 4.6
+  },
+  {
+    "bakery_id": "b007",
+    "course_id": "c011",
+    "bakery_name": "오이",
+    "address": "부산광역시 서초구 삼성66로 (보람홍김마을)",
+    "latitude": 36.804452,
+    "longitude": 127.265684,
+    "operating_days": [
+      "Tue",
+      "Sun",
+      "Thu",
+      "Wed",
+      "Mon"
+    ],
+    "operating_hours": "10:00-19:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery8.jpg",
+    "avg_rating": 4.7
+  },
+  {
+    "bakery_id": "b008",
+    "course_id": "c018",
+    "bakery_name": "주식회사 배이김",
+    "address": "경상북도 서산시 개포3가 (민준최면)",
+    "latitude": 36.941427,
+    "longitude": 128.199652,
+    "operating_days": [
+      "Wed",
+      "Tue",
+      "Thu",
+      "Fri",
+      "Mon"
+    ],
+    "operating_hours": "11:00-21:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery9.jpg",
+    "avg_rating": 4.5
+  },
+  {
+    "bakery_id": "b009",
+    "course_id": "c016",
+    "bakery_name": "(주) 손박최",
+    "address": "대구광역시 금천구 개포가",
+    "latitude": 37.63511,
+    "longitude": 127.802565,
+    "operating_days": [
+      "Sun",
+      "Wed",
+      "Fri",
+      "Tue",
+      "Mon"
+    ],
+    "operating_hours": "10:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery10.jpg",
+    "avg_rating": 3.6
+  },
+  {
+    "bakery_id": "b010",
+    "course_id": "c014",
+    "bakery_name": "조정",
+    "address": "대전광역시 송파구 가락길",
+    "latitude": 33.129861,
+    "longitude": 128.464031,
+    "operating_days": [
+      "Fri",
+      "Mon",
+      "Sun",
+      "Thu",
+      "Tue"
+    ],
+    "operating_hours": "10:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery1.jpg",
+    "avg_rating": 4.7
+  },
+  {
+    "bakery_id": "b011",
+    "course_id": "c002",
+    "bakery_name": "(주) 김",
+    "address": "부산광역시 강남구 역삼158거리",
+    "latitude": 36.424077,
+    "longitude": 128.988339,
+    "operating_days": [
+      "Wed",
+      "Sat",
+      "Sun",
+      "Mon",
+      "Tue"
+    ],
+    "operating_hours": "8:00-18:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery2.jpg",
+    "avg_rating": 4.8
+  },
+  {
+    "bakery_id": "b012",
+    "course_id": "c009",
+    "bakery_name": "(주) 강서윤",
+    "address": "부산광역시 마포구 테헤란22길 (영진김이동)",
+    "latitude": 34.467858,
+    "longitude": 126.64662,
+    "operating_days": [
+      "Wed",
+      "Sun",
+      "Thu",
+      "Mon",
+      "Fri"
+    ],
+    "operating_hours": "10:00-18:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery3.jpg",
+    "avg_rating": 4.8
+  },
+  {
+    "bakery_id": "b013",
+    "course_id": "c018",
+    "bakery_name": "(주) 최",
+    "address": "인천광역시 북구 도산대0로",
+    "latitude": 37.154536,
+    "longitude": 126.32917,
+    "operating_days": [
+      "Mon",
+      "Sat",
+      "Tue",
+      "Thu",
+      "Sun"
+    ],
+    "operating_hours": "9:00-18:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery4.jpg",
+    "avg_rating": 3.7
+  },
+  {
+    "bakery_id": "b014",
+    "course_id": "c019",
+    "bakery_name": "주식회사 김",
+    "address": "강원도 수원시 양재천길",
+    "latitude": 38.146934,
+    "longitude": 126.755364,
+    "operating_days": [
+      "Tue",
+      "Fri",
+      "Sun",
+      "Sat",
+      "Mon"
+    ],
+    "operating_hours": "11:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery5.jpg",
+    "avg_rating": 4.4
+  },
+  {
+    "bakery_id": "b015",
+    "course_id": "c005",
+    "bakery_name": "김이",
+    "address": "부산광역시 영등포구 삼성31길",
+    "latitude": 37.511724,
+    "longitude": 126.349184,
+    "operating_days": [
+      "Sun",
+      "Fri",
+      "Sat",
+      "Wed",
+      "Thu"
+    ],
+    "operating_hours": "10:00-21:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery6.jpg",
+    "avg_rating": 3.6
+  },
+  {
+    "bakery_id": "b016",
+    "course_id": "c019",
+    "bakery_name": "주식회사 강주심",
+    "address": "서울특별시 성동구 강남대로",
+    "latitude": 33.541763,
+    "longitude": 126.089501,
+    "operating_days": [
+      "Thu",
+      "Tue",
+      "Fri",
+      "Sun",
+      "Sat"
+    ],
+    "operating_hours": "8:00-21:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery7.jpg",
+    "avg_rating": 4.3
+  },
+  {
+    "bakery_id": "b017",
+    "course_id": "c017",
+    "bakery_name": "김이",
+    "address": "인천광역시 서초구 반포대430거리 (민수한강리)",
+    "latitude": 38.294032,
+    "longitude": 127.341746,
+    "operating_days": [
+      "Tue",
+      "Fri",
+      "Sat",
+      "Sun",
+      "Thu"
+    ],
+    "operating_hours": "11:00-20:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery8.jpg",
+    "avg_rating": 4.6
+  },
+  {
+    "bakery_id": "b018",
+    "course_id": "c014",
+    "bakery_name": "(유) 박이유",
+    "address": "경기도 가평군 도산대거리",
+    "latitude": 37.413939,
+    "longitude": 127.050719,
+    "operating_days": [
+      "Thu",
+      "Mon",
+      "Sat",
+      "Sun",
+      "Tue"
+    ],
+    "operating_hours": "11:00-21:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery9.jpg",
+    "avg_rating": 4.5
+  },
+  {
+    "bakery_id": "b019",
+    "course_id": "c005",
+    "bakery_name": "유한회사 김",
+    "address": "전라북도 하남시 서초대로",
+    "latitude": 33.300867,
+    "longitude": 126.156037,
+    "operating_days": [
+      "Thu",
+      "Fri",
+      "Mon",
+      "Wed",
+      "Sun"
+    ],
+    "operating_hours": "9:00-18:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery10.jpg",
+    "avg_rating": 4.3
+  },
+  {
+    "bakery_id": "b020",
+    "course_id": "c015",
+    "bakery_name": "김김권",
+    "address": "제주특별자치도 서산시 테헤란로",
+    "latitude": 33.187623,
+    "longitude": 127.282988,
+    "operating_days": [
+      "Tue",
+      "Sun",
+      "Wed",
+      "Thu",
+      "Sat"
+    ],
+    "operating_hours": "11:00-17:00",
+    "image_url": "https://res.cloudinary.com/breadjourney/image/upload/v1/bakeries/bakery1.jpg",
+    "avg_rating": 3.8
+  }
+]
