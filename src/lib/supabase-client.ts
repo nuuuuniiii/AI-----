@@ -79,10 +79,10 @@ export const db = {
 
   // 데이터 삭제
   async delete(table: string, filters: Record<string, string | number | boolean>) {
-    let query: ReturnType<typeof supabase.from> = supabase.from(table).delete() as any
+    let query = supabase.from(table).delete()
     
     Object.entries(filters).forEach(([key, value]) => {
-      query = query.eq(key, value) as any
+      query = query.eq(key, value)
     })
     
     const { data: result, error } = await query.select()
