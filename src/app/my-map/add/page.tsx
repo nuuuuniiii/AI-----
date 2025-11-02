@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import GNB from '@/components/GNB';
@@ -67,7 +67,8 @@ function KoreaMap({
   );
 }
 
-export default function MyMapAdd() {
+// useSearchParams를 사용하는 내부 컴포넌트
+function MyMapAddContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const editCourseId = searchParams.get('edit');
@@ -901,5 +902,18 @@ export default function MyMapAdd() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Suspense로 감싼 메인 컴포넌트
+export default function MyMapAdd() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
+        <p className="text-[#50392b]">로딩 중...</p>
+      </div>
+    }>
+      <MyMapAddContent />
+    </Suspense>
   );
 }
