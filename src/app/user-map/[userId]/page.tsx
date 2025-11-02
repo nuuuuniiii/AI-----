@@ -447,7 +447,14 @@ export default function UserMapPage() {
             continue;
           }
 
-          const bakery = bakeryData[0] as {
+          // 타입 가드: bakeryData[0]가 유효한 객체인지 확인
+          const firstBakery = bakeryData[0];
+          if (!firstBakery || typeof firstBakery !== 'object' || 'error' in firstBakery) {
+            console.error(`[User Map] 빵집 ${bakeryId} 데이터 형식이 올바르지 않습니다:`, firstBakery);
+            continue;
+          }
+
+          const bakery = firstBakery as unknown as {
             id: string;
             name: string;
             address: string;
@@ -462,11 +469,22 @@ export default function UserMapPage() {
           let review = '';
           
           if (reviewsData && Array.isArray(reviewsData) && reviewsData.length > 0) {
-            // 해당 사용자의 리뷰 우선 찾기
-            const userReview = reviewsData.find((r: { user_id?: string }) => r.user_id === user?.userId);
-            const reviewToUse = userReview || reviewsData[0];
-            rating = (reviewToUse as { rating?: number }).rating ?? 0;
-            review = (reviewToUse as { content?: string }).content || '';
+            // 타입 가드: 유효한 리뷰만 필터링
+            const validReviews = reviewsData.filter((r): boolean => {
+              return r && typeof r === 'object' && !('error' in r);
+            });
+            
+            if (validReviews.length > 0) {
+              // 해당 사용자의 리뷰 우선 찾기
+              const userReview = validReviews.find((r) => {
+                const reviewObj = r as unknown as { user_id?: string };
+                return reviewObj.user_id === user?.userId;
+              });
+              const reviewToUse = userReview || validReviews[0];
+              const reviewObj = reviewToUse as unknown as { rating?: number; content?: string };
+              rating = reviewObj.rating ?? 0;
+              review = reviewObj.content || '';
+            }
           }
 
           // operating_hours에서 시간 문자열 추출

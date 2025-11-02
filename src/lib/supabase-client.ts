@@ -48,15 +48,15 @@ export const db = {
   // 데이터 조회
   async select(table: string, columns = '*', filters?: Record<string, string | number | boolean>) {
     try {
-      let query = supabase.from(table).select(columns)
-      
-      if (filters) {
-        Object.entries(filters).forEach(([key, value]) => {
-          query = query.eq(key, value)
-        })
-      }
-      
-      const { data, error } = await query
+    let query = supabase.from(table).select(columns)
+    
+    if (filters) {
+      Object.entries(filters).forEach(([key, value]) => {
+        query = query.eq(key, value)
+      })
+    }
+    
+    const { data, error } = await query
       
       // 에러가 있으면 상세 로깅
       if (error) {
@@ -112,8 +112,9 @@ export const db = {
         
         // 에러 객체의 모든 속성 로깅
         if (response.error && typeof response.error === 'object') {
-          for (const key in response.error) {
-            console.error(`에러[${key}]:`, response.error[key]);
+          const errorObj = response.error as unknown as Record<string, unknown>;
+          for (const key in errorObj) {
+            console.error(`에러[${key}]:`, errorObj[key]);
           }
         }
       }

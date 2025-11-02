@@ -18,7 +18,7 @@ export default function BreadPilgrimRankingRow({ user }: BreadPilgrimRankingRowP
       <div className="flex items-center p-4 border-b border-gray-100 last:border-b-0 hover:bg-[#F9F9F9] transition-colors duration-200">
         {/* Rank */}
         <div className="flex-shrink-0 w-12 text-center">
-          <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg text-sm font-pretendard-semibold ${getRankColor(user.rank)}`}>
+          <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg text-sm font-pretendard-semibold ${getRankColor()}`}>
             {user.rank}
           </div>
         </div>
