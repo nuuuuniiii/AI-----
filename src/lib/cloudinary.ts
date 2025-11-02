@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
+import type { UploadApiOptions, TransformationOptions } from 'cloudinary';
 
 // Cloudinary 설정
 const cloudName = process.env.CLOUDINARY_CLOUD_NAME || 'dlkvb6qom';
@@ -29,7 +30,7 @@ export const uploadImage = async (file: File | string, folder?: string) => {
       throw new Error('Cloudinary API credentials not found. Please check your environment variables.');
     }
 
-    const uploadOptions: any = {
+    const uploadOptions: UploadApiOptions = {
       resource_type: 'auto',
     };
     
@@ -72,6 +73,6 @@ export const deleteImage = async (publicId: string) => {
 };
 
 // 이미지 URL 생성 함수
-export const getImageUrl = (publicId: string, options?: any) => {
+export const getImageUrl = (publicId: string, options?: TransformationOptions) => {
   return cloudinary.url(publicId, options);
 };

@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { auth, db } from '@/lib/supabase-client'
+import type { User } from '@supabase/supabase-js'
 
 export default function SupabaseExample() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)

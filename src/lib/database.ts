@@ -1,9 +1,12 @@
 import { supabase } from './supabase';
 import { Database } from './supabase';
+import type { Review } from '@/types/data';
 
 type Bakery = Database['public']['Tables']['bakeries']['Row'];
 type BakeryInsert = Database['public']['Tables']['bakeries']['Insert'];
 type BakeryUpdate = Database['public']['Tables']['bakeries']['Update'];
+
+interface ReviewInsert extends Omit<Review, 'id' | 'createdAt' | 'updatedAt'> {}
 
 // 빵집 관련 함수들
 export const bakeryService = {
@@ -144,7 +147,7 @@ export const reviewService = {
   },
 
   // 리뷰 생성
-  async createReview(review: any) {
+  async createReview(review: ReviewInsert) {
     const { data, error } = await supabase
       .from('reviews')
       .insert(review)
