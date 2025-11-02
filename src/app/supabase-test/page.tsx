@@ -115,7 +115,7 @@ export default function SupabaseTestPage() {
 
     try {
       // 테스트 코스 추가
-      const { data: courseData, error: courseError } = await db.insert('courses', {
+      const { result: courseData, error: courseError } = await db.insert('courses', {
         user_id: user.id,
         title: '테스트 빵지순례 코스',
         description: 'Supabase 연결 테스트용 코스입니다.'
@@ -124,7 +124,7 @@ export default function SupabaseTestPage() {
       if (courseError) throw courseError
 
       // 테스트 빵집 추가
-      const { data: bakeryData, error: bakeryError } = await db.insert('bakeries', {
+      const { result: bakeryData, error: bakeryError } = await db.insert('bakeries', {
         name: '테스트 빵집',
         address: '서울시 강남구',
         latitude: 37.5665,
@@ -163,9 +163,9 @@ export default function SupabaseTestPage() {
               {courses.length > 0 ? (
                 <ul className="space-y-2">
                   {courses.map((course) => (
-                    <li key={course.id} className="p-2 bg-gray-50 rounded">
-                      <div className="font-medium">{course.title}</div>
-                      <div className="text-sm text-gray-600">{course.description}</div>
+                    <li key={(course as {id?: string}).id} className="p-2 bg-gray-50 rounded">
+                      <div className="font-medium">{(course as {title?: string}).title}</div>
+                      <div className="text-sm text-gray-600">{(course as {description?: string}).description}</div>
                     </li>
                   ))}
                 </ul>
@@ -179,10 +179,10 @@ export default function SupabaseTestPage() {
               {bakeries.length > 0 ? (
                 <ul className="space-y-2">
                   {bakeries.map((bakery) => (
-                    <li key={bakery.id} className="p-2 bg-gray-50 rounded">
-                      <div className="font-medium">{bakery.name}</div>
-                      <div className="text-sm text-gray-600">{bakery.address}</div>
-                      <div className="text-sm text-yellow-600">⭐ {bakery.rating}</div>
+                    <li key={(bakery as {id?: string}).id} className="p-2 bg-gray-50 rounded">
+                      <div className="font-medium">{(bakery as {name?: string}).name}</div>
+                      <div className="text-sm text-gray-600">{(bakery as {address?: string}).address}</div>
+                      <div className="text-sm text-yellow-600">⭐ {(bakery as {rating?: number}).rating}</div>
                     </li>
                   ))}
                 </ul>

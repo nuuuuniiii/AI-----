@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { UserRanking } from '@/data/user-ranking';
+import type { UserRanking } from '@/types/data';
 import { BreadIconBrownExplore } from './Icons';
 
 // Figma에서 가져온 이미지 상수

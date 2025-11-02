@@ -97,14 +97,14 @@ export default function TestDatabase() {
         ) : (
           <div className="grid gap-4">
             {bakeries.map((bakery) => (
-              <div key={bakery.id} className="border p-4 rounded">
-                <h3 className="font-semibold">{bakery.name}</h3>
-                <p className="text-gray-600">{bakery.address}</p>
+              <div key={(bakery as {id?: string}).id} className="border p-4 rounded">
+                <h3 className="font-semibold">{(bakery as {name?: string}).name}</h3>
+                <p className="text-gray-600">{(bakery as {address?: string}).address}</p>
                 <p className="text-sm text-gray-500">
-                  {bakery.latitude}, {bakery.longitude}
+                  {(bakery as {latitude?: number}).latitude}, {(bakery as {longitude?: number}).longitude}
                 </p>
                 <p className="text-sm text-gray-500">
-                  카테고리: {bakery.category} | 가격대: {bakery.price_range}
+                  카테고리: {(bakery as {category?: string}).category} | 가격대: {(bakery as {price_range?: string}).price_range}
                 </p>
               </div>
             ))}

@@ -26,6 +26,18 @@ export type Database = {
           latitude: number
           longitude: number
           created_at: string
+          phone?: string
+          website?: string
+          category?: string
+          price_range?: string
+          parking?: boolean
+          wifi?: boolean
+          takeout?: boolean
+          delivery?: boolean
+          operating_hours?: unknown
+          closed_days?: unknown
+          tags?: unknown
+          image_url?: string
         }
         Insert: {
           id?: string
@@ -34,6 +46,18 @@ export type Database = {
           latitude: number
           longitude: number
           created_at?: string
+          phone?: string
+          website?: string
+          category?: string
+          price_range?: string
+          parking?: boolean
+          wifi?: boolean
+          takeout?: boolean
+          delivery?: boolean
+          operating_hours?: unknown
+          closed_days?: unknown
+          tags?: unknown
+          image_url?: string
         }
         Update: {
           id?: string
@@ -42,6 +66,18 @@ export type Database = {
           latitude?: number
           longitude?: number
           created_at?: string
+          phone?: string
+          website?: string
+          category?: string
+          price_range?: string
+          parking?: boolean
+          wifi?: boolean
+          takeout?: boolean
+          delivery?: boolean
+          operating_hours?: unknown
+          closed_days?: unknown
+          tags?: unknown
+          image_url?: string
         }
       }
     }

@@ -58,7 +58,7 @@ export default function RankingPage() {
             { id: 'region', label: '지역별' }
           ]}
           activeTab={activeTab}
-          onTabChange={setActiveTab}
+          onTabChange={(tab) => setActiveTab(tab as 'all' | 'online' | 'region')}
         />
 
         {/* Region Filter for region tab */}
