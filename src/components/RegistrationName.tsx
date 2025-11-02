@@ -25,7 +25,7 @@ const RegistrationName = () => (
           <feComposite in2="hardAlpha" operator="out"/>
           <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
           <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_397_4833"/>
-          <feBlend mode="normal" in2="SourceGraphic" in2="effect1_dropShadow_397_4833" result="shape"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_397_4833" result="shape"/>
         </filter>
         <filter id="filter1_d_397_4833" x="30.1562" y="128.125" width="24.6875" height="24.6875" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
           <feFlood floodOpacity="0" result="BackgroundImageFix"/>

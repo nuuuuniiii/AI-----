@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { auth, db } from '@/lib/supabase-client'
+import { auth } from '@/lib/supabase-client'
 import type { User } from '@supabase/supabase-js'
 
 export default function SupabaseExample() {
@@ -26,7 +26,7 @@ export default function SupabaseExample() {
     setLoading(true)
     setMessage('')
 
-    const { data, error } = await auth.signUp(email, password)
+    const { error } = await auth.signUp(email, password)
     
     if (error) {
       setMessage(`회원가입 실패: ${error.message}`)

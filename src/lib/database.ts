@@ -2,11 +2,16 @@ import { supabase } from './supabase';
 import { Database } from './supabase';
 import type { Review } from '@/types/data';
 
-type Bakery = Database['public']['Tables']['bakeries']['Row'];
 type BakeryInsert = Database['public']['Tables']['bakeries']['Insert'];
 type BakeryUpdate = Database['public']['Tables']['bakeries']['Update'];
 
-interface ReviewInsert extends Omit<Review, 'id' | 'createdAt' | 'updatedAt'> {}
+interface ReviewInsert {
+  bakeryId: string
+  userId: string
+  content: string
+  rating: number
+  images?: string[]
+}
 
 // 빵집 관련 함수들
 export const bakeryService = {
@@ -35,12 +40,9 @@ export const bakeryService = {
 
   // 빵집 생성
   async createBakery(bakery: BakeryInsert) {
-    // id가 없으면 제거 (자동 생성되도록)
-    const { id, ...bakeryWithoutId } = bakery;
-    
     const { data, error } = await supabase
       .from('bakeries')
-      .insert(bakeryWithoutId)
+      .insert(bakery)
       .select()
       .single();
     
@@ -85,7 +87,7 @@ export const bakeryService = {
   },
 
   // 간단한 지오코딩 함수 (실제로는 Google Maps API 등 사용)
-  async geocodeAddress(address: string): Promise<{ lat: number; lng: number }> {
+  async geocodeAddress(_address: string): Promise<{ lat: number; lng: number }> {
     // 임시 좌표 반환 (실제로는 지오코딩 API 호출)
     return {
       lat: 37.5665 + (Math.random() - 0.5) * 0.1,
