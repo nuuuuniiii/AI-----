@@ -304,8 +304,44 @@ export default function MyMap() {
           return;
         }
 
+        // 타입 가드: courses가 유효한 SavedCourse[] 배열인지 확인
         if (courses && Array.isArray(courses)) {
-          setSavedCourses(courses as SavedCourse[]);
+          // 각 코스가 SavedCourse 형태인지 확인하고 필터링
+          const validCourses: SavedCourse[] = courses
+            .filter((c): boolean => {
+              return (
+                c &&
+                typeof c === 'object' &&
+                !('error' in c) &&
+                'id' in c &&
+                'name' in c &&
+                'region' in c &&
+                'latitude' in c &&
+                'longitude' in c &&
+                'recommendation_count' in c
+              );
+            })
+            .map((c) => {
+              // 타입 안전하게 변환
+              const course = c as unknown as {
+                id: string;
+                name: string;
+                region: string;
+                latitude: number | null;
+                longitude: number | null;
+                recommendation_count: number;
+              };
+              return {
+                id: course.id,
+                name: course.name,
+                region: course.region,
+                latitude: course.latitude,
+                longitude: course.longitude,
+                recommendation_count: course.recommendation_count || 0
+              };
+            });
+
+          setSavedCourses(validCourses);
         }
       } catch (err) {
         console.error('코스 불러오기 중 오류:', err);
@@ -333,7 +369,15 @@ export default function MyMap() {
         return;
       }
 
-      const courseData = course[0] as SavedCourse & { recommendation_count?: number };
+      // 타입 가드: course[0]가 유효한 객체인지 확인
+      const firstCourse = course[0];
+      if (!firstCourse || typeof firstCourse !== 'object' || 'error' in firstCourse) {
+        console.error('코스 데이터 형식이 올바르지 않습니다:', firstCourse);
+        setLoadingDetail(false);
+        return;
+      }
+
+      const courseData = firstCourse as unknown as SavedCourse & { recommendation_count?: number };
       console.log('[My Map] 코스 정보:', courseData);
 
       // 현재 사용자가 이미 추천했는지 확인
@@ -344,7 +388,7 @@ export default function MyMap() {
           course_id: courseId,
           user_id: user.id
         });
-        isRecommended = existingRecommendations && Array.isArray(existingRecommendations) && existingRecommendations.length > 0;
+        isRecommended = !!(existingRecommendations && Array.isArray(existingRecommendations) && existingRecommendations.length > 0);
       }
 
       // 2. 코스에 연결된 빵집들 가져오기 (course_bakeries)
@@ -396,7 +440,14 @@ export default function MyMap() {
             continue;
           }
 
-          const bakery = bakeryData[0] as {
+          // 타입 가드: bakeryData[0]가 유효한 객체인지 확인
+          const firstBakery = bakeryData[0];
+          if (!firstBakery || typeof firstBakery !== 'object' || 'error' in firstBakery) {
+            console.error(`[My Map] 빵집 ${bakeryId} 데이터 형식이 올바르지 않습니다:`, firstBakery);
+            continue;
+          }
+
+          const bakery = firstBakery as unknown as {
             id: string;
             name: string;
             address: string;
@@ -449,7 +500,13 @@ export default function MyMap() {
           
           if (reviewsData && Array.isArray(reviewsData) && reviewsData.length > 0) {
             // 가장 최근 리뷰 사용
-            const latestReview = reviewsData[0] as { rating?: number; content?: string };
+            // 타입 가드: reviewsData[0]가 유효한 객체인지 확인
+            const firstReview = reviewsData[0];
+            if (!firstReview || typeof firstReview !== 'object' || 'error' in firstReview) {
+              console.warn(`[My Map] 빵집 ${bakeryId} 리뷰 데이터 형식이 올바르지 않습니다:`, firstReview);
+              continue;
+            }
+            const latestReview = firstReview as unknown as { rating?: number; content?: string };
             rating = latestReview.rating ?? null;
             review = latestReview.content ?? null;
             console.log(`[My Map] 리뷰 정보 - 별점: ${rating}, 리뷰: ${review}`);

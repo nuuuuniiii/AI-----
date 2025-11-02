@@ -287,7 +287,15 @@ export default function UserMapPage() {
           return;
         }
         
-        const supabaseUser = users[0] as { id: string };
+        // 타입 가드: users[0]가 유효한 객체인지 확인
+        const firstUser = users[0];
+        if (!firstUser || typeof firstUser !== 'object' || 'error' in firstUser) {
+          console.error('[User Map] 사용자 데이터 형식이 올바르지 않습니다:', firstUser);
+          setSavedCourses([]);
+          setLoading(false);
+          return;
+        }
+        const supabaseUser = firstUser as unknown as { id: string };
         const supabaseUserId = supabaseUser.id;
         console.log('[User Map] Supabase 사용자 ID:', supabaseUserId);
         
@@ -302,8 +310,41 @@ export default function UserMapPage() {
           return;
         }
 
+        // 타입 가드: courses가 유효한 SavedCourse[] 배열인지 확인
         if (courses && Array.isArray(courses)) {
-          setSavedCourses(courses as SavedCourse[]);
+          // 각 코스가 SavedCourse 형태인지 확인하고 필터링
+          const validCourses: SavedCourse[] = courses
+            .filter((c): boolean => {
+              return (
+                c &&
+                typeof c === 'object' &&
+                !('error' in c) &&
+                'id' in c &&
+                'name' in c &&
+                'latitude' in c &&
+                'longitude' in c &&
+                'created_by' in c
+              );
+            })
+            .map((c) => {
+              // unknown을 거쳐 안전하게 변환
+              const course = c as unknown as {
+                id: string | number;
+                name: string;
+                latitude: number | null;
+                longitude: number | null;
+                created_by: string;
+              };
+              return {
+                id: String(course.id),
+                name: String(course.name),
+                latitude: typeof course.latitude === 'number' ? course.latitude : null,
+                longitude: typeof course.longitude === 'number' ? course.longitude : null,
+                created_by: String(course.created_by)
+              };
+            });
+          
+          setSavedCourses(validCourses);
         }
       } catch (err) {
         console.error('코스 불러오기 중 오류:', err);
@@ -349,7 +390,15 @@ export default function UserMapPage() {
         return;
       }
 
-      const courseData = course[0] as SavedCourse & { recommendation_count?: number };
+      // 타입 가드: course[0]가 유효한 객체인지 확인
+      const firstCourse = course[0];
+      if (!firstCourse || typeof firstCourse !== 'object' || 'error' in firstCourse) {
+        console.error('[User Map] 코스 데이터 형식이 올바르지 않습니다:', firstCourse);
+        setLoadingDetail(false);
+        return;
+      }
+
+      const courseData = firstCourse as unknown as SavedCourse & { recommendation_count?: number };
       console.log('[User Map] 코스 정보:', courseData);
 
       // 현재 사용자가 이미 추천했는지 확인
@@ -359,7 +408,7 @@ export default function UserMapPage() {
           course_id: courseId,
           user_id: currentUserId
         });
-        isRecommended = existingRecommendations && Array.isArray(existingRecommendations) && existingRecommendations.length > 0;
+        isRecommended = !!(existingRecommendations && Array.isArray(existingRecommendations) && existingRecommendations.length > 0);
       }
 
       // 2. 코스에 연결된 빵집들 가져오기 (course_bakeries)
