@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import MainInput from './MainInput';
 
 export default function GNB() {
@@ -18,19 +19,22 @@ export default function GNB() {
       </div>
 
       {/* Search Input */}
-      <div className="absolute left-1/2 -translate-x-1/2">
+      <div className="absolute left-1/2 -translate-x-1/2 z-0">
         <MainInput />
       </div>
 
       {/* Profile */}
-      <div className="flex items-center gap-[8px]">
+      <Link 
+        href="/login"
+        className="flex items-center gap-[8px] cursor-pointer hover:opacity-80 transition-opacity relative z-10"
+      >
         <p className="font-semibold text-[15px] text-white opacity-70 whitespace-nowrap">
           Hyegyo Lee
         </p>
         <div className="size-[28px] rounded-full overflow-hidden bg-white flex items-center justify-center">
           <div className="size-[20px] bg-gray-600 rounded-full"></div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

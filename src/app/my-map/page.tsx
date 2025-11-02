@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { KoreaMapWithBreadIcon, MapBreadIcon } from '@/components/Icons';
 import RoadModal from '@/components/RoadModal';
+import { auth, db } from '@/lib/supabase-client';
 
 // Sample data for different courses
 interface Shop {
@@ -231,27 +232,335 @@ const courseData: { [key: string]: CourseData } = {
   }
 };
 
+interface SavedCourse {
+  id: string;
+  name: string;
+  region: string;
+  latitude: number | null;
+  longitude: number | null;
+  recommendation_count: number;
+}
+
+interface BakeryWithReview {
+  id: string;
+  name: string;
+  address: string;
+  operating_hours: unknown;
+  image_url: string | null;
+  rating: number | null;
+  review: string | null;
+  order_in_course: number;
+}
+
+interface CourseDetail {
+  id: string;
+  name: string;
+  region: string;
+  recommendation_count: number;
+  bakeries: BakeryWithReview[];
+}
+
 export default function MyMap() {
   const router = useRouter();
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
+  const [savedCourses, setSavedCourses] = useState<SavedCourse[]>([]);
+  const [courseDetail, setCourseDetail] = useState<CourseDetail | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingDetail, setLoadingDetail] = useState(false);
 
-  const handleIconClick = (name: string) => {
-    setSelectedCourse(name);
+  // 위도/경도를 픽셀 좌표로 변환 (My map 지도 기준)
+  // My map 지도 크기: 672px x 1054px
+  const convertLatLngToPixel = (lat: number, lng: number) => {
+    const latRange = [33.0, 38.6];
+    const lngRange = [124.5, 132.0];
+    const mapWidth = 672;
+    const mapHeight = 1054;
+    
+    const x = ((lng - lngRange[0]) / (lngRange[1] - lngRange[0])) * mapWidth;
+    const y = ((latRange[1] - lat) / (latRange[1] - latRange[0])) * mapHeight;
+    
+    return { x, y };
+  };
+
+  // Supabase에서 현재 사용자의 코스 불러오기
+  useEffect(() => {
+    const loadCourses = async () => {
+      try {
+        const { user } = await auth.getCurrentUser();
+        if (!user) {
+          setLoading(false);
+          return;
+        }
+
+        // 현재 사용자가 생성한 코스 불러오기
+        const { data: courses, error } = await db.select('bread_courses', '*', { created_by: user.id });
+        
+        if (error) {
+          console.error('코스 불러오기 실패:', error);
+          setLoading(false);
+          return;
+        }
+
+        if (courses && Array.isArray(courses)) {
+          setSavedCourses(courses as SavedCourse[]);
+        }
+      } catch (err) {
+        console.error('코스 불러오기 중 오류:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCourses();
+  }, []);
+
+  // 코스 상세 정보 불러오기
+  const loadCourseDetail = async (courseId: string) => {
+    setLoadingDetail(true);
+    try {
+      console.log('[My Map] 코스 상세 정보 불러오기 시작, 코스 ID:', courseId);
+      
+      // 1. 코스 정보 가져오기
+      const { data: course, error: courseError } = await db.select('bread_courses', '*', { id: courseId });
+      
+      if (courseError || !course || course.length === 0) {
+        console.error('[My Map] 코스 정보 불러오기 실패:', courseError);
+        console.error('[My Map] 코스 데이터:', course);
+        setLoadingDetail(false);
+        return;
+      }
+
+      const courseData = course[0] as SavedCourse;
+      console.log('[My Map] 코스 정보:', courseData);
+
+      // 2. 코스에 연결된 빵집들 가져오기 (course_bakeries)
+      const { data: courseBakeries, error: courseBakeriesError } = await db.select(
+        'course_bakeries',
+        '*',
+        { course_id: courseId }
+      );
+
+      console.log('[My Map] 코스-빵집 연결 데이터:', courseBakeries);
+      console.log('[My Map] 코스-빵집 연결 에러:', courseBakeriesError);
+
+      if (courseBakeriesError) {
+        console.error('[My Map] 코스-빵집 연결 불러오기 실패:', courseBakeriesError);
+        setLoadingDetail(false);
+        return;
+      }
+
+      // 3. 각 빵집의 상세 정보와 리뷰 가져오기
+      const bakeriesWithDetails: BakeryWithReview[] = [];
+
+      if (courseBakeries && Array.isArray(courseBakeries) && courseBakeries.length > 0) {
+        console.log(`[My Map] 연결된 빵집 개수: ${courseBakeries.length}`);
+        
+        // order_in_course로 정렬
+        const sortedCourseBakeries = [...courseBakeries].sort((a, b) => {
+          const orderA = (a as { order_in_course?: number }).order_in_course || 0;
+          const orderB = (b as { order_in_course?: number }).order_in_course || 0;
+          return orderA - orderB;
+        });
+
+        for (const courseBakery of sortedCourseBakeries) {
+          const bakeryId = (courseBakery as { bakery_id?: string }).bakery_id;
+          console.log(`[My Map] 빵집 ID: ${bakeryId}`);
+          
+          if (!bakeryId) {
+            console.warn('[My Map] bakery_id가 없습니다:', courseBakery);
+            continue;
+          }
+
+          // 빵집 정보 가져오기
+          const { data: bakeryData, error: bakeryError } = await db.select('bakeries', '*', { id: bakeryId });
+          
+          console.log(`[My Map] 빵집 ${bakeryId} 데이터:`, bakeryData);
+          console.log(`[My Map] 빵집 ${bakeryId} 에러:`, bakeryError);
+          
+          if (bakeryError || !bakeryData || bakeryData.length === 0) {
+            console.error(`[My Map] 빵집 ${bakeryId} 정보 불러오기 실패:`, bakeryError);
+            continue;
+          }
+
+          const bakery = bakeryData[0] as {
+            id: string;
+            name: string;
+            address: string;
+            operating_hours: unknown;
+            image_url: string | null;
+          };
+
+          console.log(`[My Map] 빵집 상세 정보:`, bakery);
+          console.log(`[My Map] operating_hours 타입:`, typeof bakery.operating_hours);
+          console.log(`[My Map] operating_hours 값:`, bakery.operating_hours);
+
+          // 리뷰 정보 가져오기 (빵집에 대한 모든 리뷰 중 가장 최근 것)
+          // 먼저 현재 사용자의 리뷰를 찾고, 없으면 모든 리뷰에서 최근 것을 가져옴
+          const { user } = await auth.getCurrentUser();
+          let reviewsData = null;
+          let reviewsError = null;
+          
+          if (user) {
+            // 현재 사용자의 리뷰 먼저 찾기
+            const { data: userReviews, error: userReviewsError } = await db.select('reviews', '*', { 
+              bakery_id: bakeryId, 
+              user_id: user.id 
+            });
+            
+            if (userReviews && Array.isArray(userReviews) && userReviews.length > 0) {
+              reviewsData = userReviews;
+              reviewsError = userReviewsError;
+            } else {
+              // 사용자 리뷰가 없으면 모든 리뷰에서 가져오기
+              const { data: allReviews, error: allReviewsError } = await db.select('reviews', '*', { 
+                bakery_id: bakeryId 
+              });
+              reviewsData = allReviews;
+              reviewsError = allReviewsError;
+            }
+          } else {
+            // 사용자가 없으면 모든 리뷰에서 가져오기
+            const { data: allReviews, error: allReviewsError } = await db.select('reviews', '*', { 
+              bakery_id: bakeryId 
+            });
+            reviewsData = allReviews;
+            reviewsError = allReviewsError;
+          }
+          
+          console.log(`[My Map] 빵집 ${bakeryId} 리뷰 데이터:`, reviewsData);
+          console.log(`[My Map] 빵집 ${bakeryId} 리뷰 에러:`, reviewsError);
+          
+          let rating: number | null = null;
+          let review: string | null = null;
+          
+          if (reviewsData && Array.isArray(reviewsData) && reviewsData.length > 0) {
+            // 가장 최근 리뷰 사용
+            const latestReview = reviewsData[0] as { rating?: number; content?: string };
+            rating = latestReview.rating ?? null;
+            review = latestReview.content ?? null;
+            console.log(`[My Map] 리뷰 정보 - 별점: ${rating}, 리뷰: ${review}`);
+          } else {
+            console.log(`[My Map] 빵집 ${bakeryId}에 리뷰가 없습니다.`);
+          }
+
+          // operating_hours에서 시간 문자열 추출
+          let hours = '';
+          if (bakery.operating_hours) {
+            if (typeof bakery.operating_hours === 'string') {
+              // 문자열인 경우 그대로 사용
+              try {
+                const parsed = JSON.parse(bakery.operating_hours);
+                hours = (parsed as { hours?: string }).hours || bakery.operating_hours;
+              } catch {
+                hours = bakery.operating_hours;
+              }
+            } else if (typeof bakery.operating_hours === 'object') {
+              const hoursObj = bakery.operating_hours as { hours?: string };
+              hours = hoursObj.hours || '';
+            }
+          }
+          
+          console.log(`[My Map] 추출된 영업일: "${hours}"`);
+
+          const bakeryDetail: BakeryWithReview = {
+            id: bakery.id,
+            name: bakery.name,
+            address: bakery.address,
+            operating_hours: bakery.operating_hours,
+            image_url: bakery.image_url,
+            rating: rating,
+            review: review,
+            order_in_course: (courseBakery as { order_in_course?: number }).order_in_course || 0
+          };
+          
+          console.log(`[My Map] 최종 빵집 정보:`, bakeryDetail);
+          bakeriesWithDetails.push(bakeryDetail);
+        }
+      } else {
+        console.warn('[My Map] 연결된 빵집이 없습니다.');
+      }
+
+      console.log('[My Map] 모든 빵집 정보:', bakeriesWithDetails);
+
+      // 빵집이 없는 경우에도 코스 정보는 표시
+      const finalCourseDetail: CourseDetail = {
+        id: courseData.id,
+        name: courseData.name,
+        region: courseData.region,
+        recommendation_count: courseData.recommendation_count || 0,
+        bakeries: bakeriesWithDetails
+      };
+      
+      console.log('[My Map] 최종 코스 상세 정보:', finalCourseDetail);
+      console.log(`[My Map] 빵집 개수: ${bakeriesWithDetails.length}`);
+      
+      if (bakeriesWithDetails.length === 0) {
+        console.warn('[My Map] 경고: 이 코스에 연결된 빵집이 없습니다.');
+      }
+      
+      setCourseDetail(finalCourseDetail);
+    } catch (err) {
+      console.error('[My Map] 코스 상세 정보 불러오기 중 오류:', err);
+    } finally {
+      setLoadingDetail(false);
+    }
+  };
+
+  const handleIconClick = (courseId: string, courseName: string) => {
+    setSelectedCourse(courseName);
+    setSelectedCourseId(courseId);
+    loadCourseDetail(courseId);
   };
 
 
   const handleEdit = () => {
-    // TODO: Navigate to edit page or open edit modal
-    console.log('Edit:', selectedCourse);
-    router.push(`/my-map/edit?location=${selectedCourse}`);
+    if (!selectedCourseId) {
+      alert('수정할 코스를 선택해주세요.');
+      return;
+    }
+    // My map > add 페이지의 3번째 화면(step 3)으로 이동하고 코스 ID 전달
+    router.push(`/my-map/add?edit=${selectedCourseId}`);
   };
 
-  const handleDelete = () => {
-    // TODO: Show confirmation dialog and delete
-    if (confirm(`정말로 "${selectedCourse}" 코스를 삭제하시겠습니까?`)) {
-      console.log('Delete:', selectedCourse);
+  const handleDelete = async () => {
+    if (!selectedCourseId) {
+      alert('삭제할 코스를 선택해주세요.');
+      return;
+    }
+
+    if (!confirm(`정말로 "${selectedCourse}" 코스를 삭제하시겠습니까?`)) {
+      return;
+    }
+
+    try {
+      console.log('[My Map] 코스 삭제 시작, 코스 ID:', selectedCourseId);
+      
+      // bread_courses 테이블에서 삭제
+      // ON DELETE CASCADE로 인해 연결된 course_bakeries도 자동 삭제됨
+      // 하지만 bakeries와 reviews는 별도로 삭제해야 할 수도 있음
+      const { error: deleteError } = await db.delete('bread_courses', { id: selectedCourseId });
+      
+      if (deleteError) {
+        console.error('[My Map] 코스 삭제 실패:', deleteError);
+        alert('코스 삭제에 실패했습니다. 다시 시도해주세요.');
+        return;
+      }
+
+      console.log('[My Map] 코스 삭제 성공');
+      
+      // 삭제된 코스를 savedCourses에서 제거
+      setSavedCourses(prevCourses => prevCourses.filter(course => course.id !== selectedCourseId));
+      
+      // 선택된 코스 초기화
       setSelectedCourse(null);
-      // TODO: Actually delete from database
+      setSelectedCourseId(null);
+      setCourseDetail(null);
+      
+      alert('코스가 삭제되었습니다.');
+    } catch (error) {
+      console.error('[My Map] 코스 삭제 중 오류:', error);
+      alert('코스 삭제 중 오류가 발생했습니다.');
     }
   };
 
@@ -347,23 +656,110 @@ export default function MyMap() {
           <div className="relative w-[672px] h-[1054px]">
             <KoreaMapWithBreadIcon />
             
-            {/* Bread Icons */}
+            {/* Bread Icons - Supabase에서 불러온 코스 표시 */}
             <div className="absolute h-[1054px] left-0 top-0 w-[672px]">
-              <MapBreadIcon name="포천" isCity={true} left={93} top={123} onClick={() => handleIconClick('포천')} />
-              <MapBreadIcon name="춘천" isCity={true} left={148} top={140} onClick={() => handleIconClick('춘천')} />
-              <MapBreadIcon name="강릉" isCity={true} left={326} top={174} onClick={() => handleIconClick('강릉')} />
-              <MapBreadIcon name="망원" isCity={false} left={7} top={203} onClick={() => handleIconClick('망원')} />
-              <MapBreadIcon name="성수" isCity={false} left={62} top={227} onClick={() => handleIconClick('성수')} />
-              <MapBreadIcon name="서면" isCity={false} left={336} top={659} onClick={() => handleIconClick('서면')} />
-              <MapBreadIcon name="서귀포" isCity={false} left={52} top={1000} onClick={() => handleIconClick('서귀포')} />
-              <MapBreadIcon name="전포" isCity={false} left={376} top={671} onClick={() => handleIconClick('전포')} />
-              <MapBreadIcon name="대전" isCity={true} left={141} top={477} onClick={() => handleIconClick('대전')} />
-              <MapBreadIcon name="여수" isCity={true} left={131} top={783} onClick={() => handleIconClick('여수')} />
+              {loading ? (
+                // 로딩 중
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="text-[#50392b] font-semibold">로딩 중...</p>
+                </div>
+              ) : (
+                // 저장된 코스들을 지도에 표시
+                savedCourses.map((course) => {
+                  if (!course.latitude || !course.longitude) return null;
+                  
+                  const pixelPos = convertLatLngToPixel(course.latitude, course.longitude);
+                  
+                  return (
+                    <MapBreadIcon
+                      key={course.id}
+                      name={course.name}
+                      isCity={true}
+                      left={pixelPos.x}
+                      top={pixelPos.y}
+                      onClick={() => handleIconClick(course.id, course.name)}
+                    />
+                  );
+                })
+              )}
+              
+              {/* 기존 샘플 데이터 (옵션 - 원하면 제거 가능) */}
+              {!loading && savedCourses.length === 0 && (
+                <>
+                  <MapBreadIcon name="포천" isCity={true} left={93} top={123} onClick={() => handleIconClick('sample-포천', '포천')} />
+                  <MapBreadIcon name="춘천" isCity={true} left={148} top={140} onClick={() => handleIconClick('sample-춘천', '춘천')} />
+                  <MapBreadIcon name="강릉" isCity={true} left={326} top={174} onClick={() => handleIconClick('sample-강릉', '강릉')} />
+                  <MapBreadIcon name="망원" isCity={false} left={7} top={203} onClick={() => handleIconClick('sample-망원', '망원')} />
+                  <MapBreadIcon name="성수" isCity={false} left={62} top={227} onClick={() => handleIconClick('sample-성수', '성수')} />
+                  <MapBreadIcon name="서면" isCity={false} left={336} top={659} onClick={() => handleIconClick('sample-서면', '서면')} />
+                  <MapBreadIcon name="서귀포" isCity={false} left={52} top={1000} onClick={() => handleIconClick('sample-서귀포', '서귀포')} />
+                  <MapBreadIcon name="전포" isCity={false} left={376} top={671} onClick={() => handleIconClick('sample-전포', '전포')} />
+                  <MapBreadIcon name="대전" isCity={true} left={141} top={477} onClick={() => handleIconClick('sample-대전', '대전')} />
+                  <MapBreadIcon name="여수" isCity={true} left={131} top={783} onClick={() => handleIconClick('sample-여수', '여수')} />
+                </>
+              )}
             </div>
           </div>
           
           {/* Fixed Position RoadModal */}
-          {selectedCourse && courseData[selectedCourse] && (
+          {selectedCourse && courseDetail && (
+            <div className="absolute top-[172.5px] right-[33px]">
+              {loadingDetail ? (
+                <div className="bg-[#9a8779] flex items-center justify-center px-[33px] py-[30px] rounded-[20px] w-[590px]">
+                  <p className="text-white font-semibold">로딩 중...</p>
+                </div>
+              ) : (
+                <RoadModal
+                  location={courseDetail.name}
+                  recommendations={courseDetail.recommendation_count}
+                  shops={courseDetail.bakeries.length > 0 
+                    ? courseDetail.bakeries.map((bakery, index) => {
+                        // operating_hours에서 시간 문자열 추출
+                        let hours = '';
+                        if (bakery.operating_hours) {
+                          if (typeof bakery.operating_hours === 'string') {
+                            // 문자열인 경우 JSON 파싱 시도
+                            try {
+                              const parsed = JSON.parse(bakery.operating_hours);
+                              hours = (parsed as { hours?: string }).hours || bakery.operating_hours;
+                            } catch {
+                              hours = bakery.operating_hours;
+                            }
+                          } else if (typeof bakery.operating_hours === 'object') {
+                            const hoursObj = bakery.operating_hours as { hours?: string };
+                            hours = hoursObj.hours || '';
+                          }
+                        }
+                        
+                        const shopData = {
+                          name: bakery.name || `빵집 ${index + 1}`,
+                          hours: hours || '영업일 정보 없음',
+                          rating: bakery.rating ?? 0,
+                          review: bakery.review || '리뷰 없음',
+                          image: bakery.image_url || '/images/store-1st.png' // 기본 이미지
+                        };
+                        
+                        console.log(`[My Map] RoadModal에 전달되는 빵집 ${index + 1} 데이터:`, shopData);
+                        
+                        return shopData;
+                      })
+                    : [{
+                        name: '빵집 정보 없음',
+                        hours: '영업일 정보 없음',
+                        rating: 0,
+                        review: '등록된 빵집이 없습니다.',
+                        image: '/images/store-1st.png'
+                      }]
+                  }
+                  onEdit={handleEdit}
+                  onDelete={handleDelete}
+                />
+              )}
+            </div>
+          )}
+          
+          {/* 기존 샘플 데이터용 RoadModal (하위 호환성) */}
+          {selectedCourse && !courseDetail && courseData[selectedCourse] && (
             <div className="absolute top-[172.5px] right-[33px]">
               <RoadModal
                 location={courseData[selectedCourse].location}

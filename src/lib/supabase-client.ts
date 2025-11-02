@@ -4,10 +4,13 @@ import type { RealtimeChannel, RealtimePostgresChangesPayload } from '@supabase/
 // 인증 관련 함수들
 export const auth = {
   // 이메일로 회원가입
-  async signUp(email: string, password: string) {
+  async signUp(email: string, password: string, options?: { emailRedirectTo?: string }) {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: options?.emailRedirectTo,
+      },
     })
     return { data, error }
   },
@@ -58,11 +61,52 @@ export const db = {
 
   // 데이터 삽입
   async insert(table: string, data: Record<string, unknown>) {
-    const { data: result, error } = await supabase
+    // 디버깅: 삽입하려는 데이터 확인
+    console.log(`[db.insert] 테이블: ${table}`);
+    console.log(`[db.insert] 데이터 키:`, Object.keys(data));
+    console.log(`[db.insert] 데이터:`, data);
+    
+    const response = await supabase
       .from(table)
       .insert(data)
       .select()
-    return { result, error }
+    
+    if (response.error) {
+      console.error(`[db.insert] 에러 발생:`, response.error);
+      console.error(`[db.insert] 에러 메시지:`, response.error.message);
+      console.error(`[db.insert] 에러 코드:`, response.error.code);
+    }
+    
+    return { result: response.data, error: response.error }
+  },
+
+  // 데이터 삽입 또는 업데이트 (upsert)
+  async upsert(table: string, data: Record<string, unknown>) {
+    try {
+      const response = await supabase
+        .from(table)
+        .upsert(data, { onConflict: 'id' }) // onConflict 옵션 추가
+        .select()
+      
+      // 에러가 있는지 확인하고 자세히 로깅
+      if (response.error) {
+        console.error('Supabase upsert 응답 에러:', response.error);
+        console.error('에러 타입:', typeof response.error);
+        console.error('에러 keys:', Object.keys(response.error));
+        
+        // 에러 객체의 모든 속성 로깅
+        if (response.error && typeof response.error === 'object') {
+          for (const key in response.error) {
+            console.error(`에러[${key}]:`, response.error[key]);
+          }
+        }
+      }
+      
+      return { result: response.data, error: response.error }
+    } catch (err) {
+      console.error('upsert 중 예외 발생:', err);
+      return { result: null, error: err as Error }
+    }
   },
 
   // 데이터 업데이트
