@@ -9,7 +9,7 @@ interface BreadPilgrimRankingRowProps {
 }
 
 export default function BreadPilgrimRankingRow({ user }: BreadPilgrimRankingRowProps) {
-  const getRankColor = (_rank: number) => {
+  const getRankColor = () => {
     return 'text-[#8B4513] bg-[#F0E6D2]';
   };
 

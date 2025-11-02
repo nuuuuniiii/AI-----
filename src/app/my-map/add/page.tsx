@@ -120,7 +120,16 @@ export default function MyMapAdd() {
           return;
         }
 
-        const course = courseData[0] as {
+        // 타입 가드: courseData[0]가 유효한 객체인지 확인
+        const firstCourse = courseData[0];
+        if (!firstCourse || typeof firstCourse !== 'object' || 'error' in firstCourse) {
+          console.error('코스 데이터 형식이 올바르지 않습니다:', firstCourse);
+          alert('코스 정보를 불러올 수 없습니다.');
+          router.push('/my-map');
+          return;
+        }
+
+        const course = firstCourse as {
           id: string;
           name: string;
           description: string | null;
@@ -169,12 +178,19 @@ export default function MyMapAdd() {
             // 빵집 정보 가져오기
             const { data: bakeryData, error: bakeryError } = await db.select('bakeries', '*', { id: bakeryId });
             
-            if (bakeryError || !bakeryData || bakeryData.length === 0) {
-              console.error(`빵집 ${bakeryId} 정보 불러오기 실패:`, bakeryError);
-              continue;
-            }
+          if (bakeryError || !bakeryData || bakeryData.length === 0) {
+            console.error(`빵집 ${bakeryId} 정보 불러오기 실패:`, bakeryError);
+            continue;
+          }
 
-            const bakery = bakeryData[0] as {
+          // 타입 가드: bakeryData[0]가 유효한 객체인지 확인
+          const firstBakery = bakeryData[0];
+          if (!firstBakery || typeof firstBakery !== 'object' || 'error' in firstBakery) {
+            console.error(`빵집 ${bakeryId} 데이터 형식이 올바르지 않습니다:`, firstBakery);
+            continue;
+          }
+
+          const bakery = firstBakery as {
               id: string;
               name: string;
               operating_hours: unknown;

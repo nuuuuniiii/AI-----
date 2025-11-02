@@ -13,7 +13,7 @@ export default function TestSupabasePage() {
     
     try {
       // 1. Supabase 연결 테스트
-      const { data: connectionTest, error: connectionError } = await supabase
+      const { error: connectionError } = await supabase
         .from('bakeries')
         .select('count')
         .limit(1);
@@ -26,7 +26,7 @@ export default function TestSupabasePage() {
       setTestResult('✅ Supabase 연결 성공!\n');
 
       // 2. 테이블 구조 확인
-      const { data: tableData, error: tableError } = await supabase
+      const { error: tableError } = await supabase
         .from('bakeries')
         .select('*')
         .limit(1);

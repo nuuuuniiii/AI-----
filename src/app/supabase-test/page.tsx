@@ -115,7 +115,7 @@ export default function SupabaseTestPage() {
 
     try {
       // 테스트 코스 추가
-      const { result: courseData, error: courseError } = await db.insert('courses', {
+      const { error: courseError } = await db.insert('courses', {
         user_id: user.id,
         title: '테스트 빵지순례 코스',
         description: 'Supabase 연결 테스트용 코스입니다.'
@@ -124,7 +124,7 @@ export default function SupabaseTestPage() {
       if (courseError) throw courseError
 
       // 테스트 빵집 추가
-      const { result: bakeryData, error: bakeryError } = await db.insert('bakeries', {
+      const { error: bakeryError } = await db.insert('bakeries', {
         name: '테스트 빵집',
         address: '서울시 강남구',
         latitude: 37.5665,
