@@ -1,6 +1,5 @@
 import { supabase } from './supabase';
 import { Database } from './supabase';
-import type { Review } from '@/types/data';
 
 type BakeryInsert = Database['public']['Tables']['bakeries']['Insert'];
 type BakeryUpdate = Database['public']['Tables']['bakeries']['Update'];

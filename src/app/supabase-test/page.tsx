@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import { auth, db } from '@/lib/supabase-client'
+import type { User } from '@supabase/supabase-js'
 
 export default function SupabaseTestPage() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
-  const [courses, setCourses] = useState<any[]>([])
-  const [bakeries, setBakeries] = useState<any[]>([])
+  const [courses, setCourses] = useState<unknown[]>([])
+  const [bakeries, setBakeries] = useState<unknown[]>([])
 
   // 현재 사용자 확인
   useEffect(() => {

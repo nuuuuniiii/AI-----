@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { bakeryService } from '@/lib/database';
 
 export default function TestDatabase() {
-  const [bakeries, setBakeries] = useState<any[]>([]);
+  const [bakeries, setBakeries] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,8 +29,8 @@ export default function TestDatabase() {
       }
 
       setBakeries(data || []);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '알 수 없는 오류');
     } finally {
       setLoading(false);
     }
@@ -51,8 +51,8 @@ export default function TestDatabase() {
       const result = await bakeryService.createBakery(newBakery);
       console.log('새 빵집 생성:', result);
       testConnection(); // 목록 새로고침
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '알 수 없는 오류');
     }
   };
 
