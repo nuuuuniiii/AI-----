@@ -33,12 +33,20 @@ function KoreaMap({
 }) {
   return (
     <div className="flex gap-[11px] h-[1054px] items-start relative">
+      {/* 한반도 지도 */}
       <div className="h-[1042.08px] relative shrink-0 w-[545.725px] cursor-pointer" onClick={onClick}>
-        <div className="absolute bottom-[-1.69%] left-[-1.61%] right-[-1.22%] top-0 relative">
-          <Image alt="korea map" src={imgFrame2147205214} fill className="block max-w-none size-full" unoptimized />
+        <div className="absolute bottom-[-1.69%] left-[-1.61%] right-[-1.22%] top-0 w-full h-full">
+          <Image 
+            alt="korea map" 
+            src={imgFrame2147205214} 
+            fill 
+            className="object-contain" 
+            unoptimized
+            sizes="545.725px"
+          />
         </div>
         {/* 클릭한 위치에 아이콘 표시 */}
-        {selectedPosition && courseName && (
+        {selectedPosition && courseName && selectedPosition.x <= 545.725 && (
           <MapBreadIcon
             name={courseName}
             isCity={true}
@@ -48,16 +56,24 @@ function KoreaMap({
           />
         )}
       </div>
+      {/* 제주도 지도 */}
       <div className="h-[584px] relative shrink-0 w-[114.941px] cursor-pointer" onClick={onClick}>
-        <div className="absolute bottom-0 left-[-7.29%] right-[-6.64%] top-0 relative">
-          <Image alt="jeju map" src={imgFrame2147205213} fill className="block max-w-none size-full" unoptimized />
+        <div className="absolute bottom-0 left-[-7.29%] right-[-6.64%] top-0 w-full h-full">
+          <Image 
+            alt="jeju map" 
+            src={imgFrame2147205213} 
+            fill 
+            className="object-contain" 
+            unoptimized
+            sizes="114.941px"
+          />
         </div>
         {/* 제주도 클릭 시에도 아이콘 표시 */}
-        {selectedPosition && selectedPosition.x > 545 && courseName && (
+        {selectedPosition && selectedPosition.x > 545.725 && courseName && (
           <MapBreadIcon
             name={courseName}
             isCity={true}
-            left={selectedPosition.x - 545}
+            left={selectedPosition.x - 545.725}
             top={selectedPosition.y}
             onClick={() => {}}
           />
