@@ -1,4 +1,5 @@
 import { supabase } from './supabase'
+import type { RealtimeChannel, RealtimePostgresChangesPayload } from '@supabase/supabase-js'
 
 // 인증 관련 함수들
 export const auth = {
@@ -42,7 +43,7 @@ export const auth = {
 // 데이터베이스 관련 함수들
 export const db = {
   // 데이터 조회
-  async select(table: string, columns = '*', filters?: any) {
+  async select(table: string, columns = '*', filters?: Record<string, string | number | boolean>) {
     let query = supabase.from(table).select(columns)
     
     if (filters) {
@@ -56,7 +57,7 @@ export const db = {
   },
 
   // 데이터 삽입
-  async insert(table: string, data: any) {
+  async insert(table: string, data: Record<string, unknown>) {
     const { data: result, error } = await supabase
       .from(table)
       .insert(data)
@@ -65,7 +66,7 @@ export const db = {
   },
 
   // 데이터 업데이트
-  async update(table: string, data: any, filters: any) {
+  async update(table: string, data: Record<string, unknown>, filters: Record<string, string | number | boolean>) {
     let query = supabase.from(table).update(data)
     
     Object.entries(filters).forEach(([key, value]) => {
@@ -77,7 +78,7 @@ export const db = {
   },
 
   // 데이터 삭제
-  async delete(table: string, filters: any) {
+  async delete(table: string, filters: Record<string, string | number | boolean>) {
     let query = supabase.from(table)
     
     Object.entries(filters).forEach(([key, value]) => {
@@ -92,7 +93,7 @@ export const db = {
 // 실시간 구독
 export const realtime = {
   // 테이블 변경사항 구독
-  subscribe(table: string, callback: (payload: any) => void) {
+  subscribe(table: string, callback: (payload: RealtimePostgresChangesPayload<Record<string, unknown>>) => void) {
     return supabase
       .channel(`${table}_changes`)
       .on('postgres_changes', 
@@ -103,7 +104,7 @@ export const realtime = {
   },
 
   // 구독 해제
-  unsubscribe(subscription: any) {
+  unsubscribe(subscription: RealtimeChannel) {
     return supabase.removeChannel(subscription)
   }
 }

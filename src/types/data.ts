@@ -27,6 +27,17 @@ export interface Course {
   updatedAt: string
 }
 
+export interface DayHours {
+  open: string
+  close: string
+}
+
+export type OperatingHours = 
+  | { [day: string]: DayHours | 'closed' | string }
+  | DayHours
+
+export type ClosedDays = string[]
+
 export interface Bakery {
   id: string
   courseId: string
@@ -44,8 +55,8 @@ export interface Bakery {
   wifi?: boolean
   takeout?: boolean
   delivery?: boolean
-  operatingHours?: any
-  closedDays?: any
+  operatingHours?: OperatingHours | null
+  closedDays?: ClosedDays | null
   orderInCourse: number
   createdAt: string
   updatedAt: string
