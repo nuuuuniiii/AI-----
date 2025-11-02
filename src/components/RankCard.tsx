@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface RankCardProps {
   rank: number;
   courseName: string;
@@ -19,11 +21,12 @@ export default function RankCard({
         <div className="flex flex-col items-center gap-[23px] w-[140px]">
           <div className="flex flex-col items-center gap-[12px]">
             {/* Image */}
-            <div className="w-[140px] h-[140px] rounded-full overflow-hidden">
-              <img
+            <div className="w-[140px] h-[140px] rounded-full overflow-hidden relative">
+              <Image
                 src={image}
                 alt={courseName}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
 
@@ -40,9 +43,11 @@ export default function RankCard({
 
           {/* Recommendations */}
           <div className="flex items-center gap-[10px]">
-            <img
+            <Image
               src="/images/Tumbsup icon_brown.png"
               alt="Thumbs Up"
+              width={40}
+              height={40}
               className="size-[40px] object-contain"
             />
             <p className="font-semibold text-[32px] text-[#473327] whitespace-nowrap leading-[140%]">

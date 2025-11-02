@@ -4,9 +4,6 @@ import Link from 'next/link';
 import type { UserRanking } from '@/types/data';
 import { BreadIconBrownExplore } from './Icons';
 
-// Figma에서 가져온 이미지 상수
-const imgVector200 = "http://localhost:3845/assets/3c11924e91a91a449cd80c92333b3270d5e92e99.svg";
-
 interface RankingRowProps {
   user: UserRanking;
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import MainInput from './MainInput';
 
 export default function GNB() {
@@ -8,9 +9,11 @@ export default function GNB() {
     <div className="bg-[#473327] h-[90px] relative w-full flex items-center justify-between px-[34px]">
       {/* Logo */}
       <div className="flex items-center gap-[6px]">
-        <img 
+        <Image 
           src="/images/breadroad main logo.png" 
           alt="Bread Logo" 
+          width={120}
+          height={40}
           className="h-[40px] w-auto object-contain"
         />
         <p className="text-white text-[24px] font-normal leading-[140%] whitespace-nowrap" style={{ fontFamily: 'BagelFatOne, cursive', color: '#FFFF', fontWeight: 400 }}>

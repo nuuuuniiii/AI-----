@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import GNB from '@/components/GNB';
 import CourseRegistrationCard from '@/components/CourseRegistrationCard';
 import GnbBtn from '@/components/GnbBtn';
@@ -33,8 +34,8 @@ function KoreaMap({
   return (
     <div className="flex gap-[11px] h-[1054px] items-start relative">
       <div className="h-[1042.08px] relative shrink-0 w-[545.725px] cursor-pointer" onClick={onClick}>
-        <div className="absolute bottom-[-1.69%] left-[-1.61%] right-[-1.22%] top-0">
-          <img alt="korea map" className="block max-w-none size-full" src={imgFrame2147205214} />
+        <div className="absolute bottom-[-1.69%] left-[-1.61%] right-[-1.22%] top-0 relative">
+          <Image alt="korea map" src={imgFrame2147205214} fill className="block max-w-none size-full" unoptimized />
         </div>
         {/* 클릭한 위치에 아이콘 표시 */}
         {selectedPosition && courseName && (
@@ -48,8 +49,8 @@ function KoreaMap({
         )}
       </div>
       <div className="h-[584px] relative shrink-0 w-[114.941px] cursor-pointer" onClick={onClick}>
-        <div className="absolute bottom-0 left-[-7.29%] right-[-6.64%] top-0">
-          <img alt="jeju map" className="block max-w-none size-full" src={imgFrame2147205213} />
+        <div className="absolute bottom-0 left-[-7.29%] right-[-6.64%] top-0 relative">
+          <Image alt="jeju map" src={imgFrame2147205213} fill className="block max-w-none size-full" unoptimized />
         </div>
         {/* 제주도 클릭 시에도 아이콘 표시 */}
         {selectedPosition && selectedPosition.x > 545 && courseName && (
@@ -529,7 +530,7 @@ export default function MyMapAdd() {
         const operatingHours = bakery.businessHours ? { hours: bakery.businessHours } : null;
 
         // Cloudinary URL 확인 (base64인 경우 경고만 하고 진행)
-        let imageUrl = bakery.imageUrl || null;
+        const imageUrl = bakery.imageUrl || null;
         if (imageUrl && imageUrl.startsWith('data:image')) {
           console.warn(`빵집 ${i + 1}의 이미지가 base64 형식입니다. Cloudinary 업로드를 확인해주세요.`);
           // base64는 너무 크므로 null로 처리하거나 저장하지 않음
@@ -736,8 +737,8 @@ export default function MyMapAdd() {
                 {/* 순례코스 이름 (Read-only) */}
                 <div className="flex flex-col gap-[6px]">
                   <div className="flex gap-[2px] items-center">
-                    <div className="size-[25px] flex items-center justify-center">
-                      <img alt="tag icon" className="block max-w-none size-full" src="http://localhost:3845/assets/9a432e408770638a6e3bf02e21d34e48da114c3d.svg" />
+                    <div className="size-[25px] flex items-center justify-center relative">
+                      <Image alt="tag icon" src="http://localhost:3845/assets/9a432e408770638a6e3bf02e21d34e48da114c3d.svg" width={25} height={25} className="block max-w-none size-full" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                       순례코스 이름
@@ -754,7 +755,7 @@ export default function MyMapAdd() {
                 <div className="flex flex-col gap-[6px]">
                   <div className="flex gap-[2px] items-center">
                     <div className="size-[25px] flex items-center justify-center relative">
-                      <img alt="clock icon" className="block max-w-none size-full" src="http://localhost:3845/assets/f60aa8e5dfb6a3e9d4eb42adbd74b7931745dfed.svg" />
+                      <Image alt="clock icon" src="http://localhost:3845/assets/f60aa8e5dfb6a3e9d4eb42adbd74b7931745dfed.svg" width={25} height={25} className="block max-w-none size-full" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                       날짜

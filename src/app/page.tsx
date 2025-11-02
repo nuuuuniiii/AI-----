@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import CTAButton from '@/components/CTAButton';
 
 export default function Home() {
@@ -10,9 +11,11 @@ export default function Home() {
       <div className="bg-[#473327] h-[90px] relative w-full flex items-center justify-between px-[34px]">
         {/* Logo */}
         <div className="flex items-center gap-[6px]">
-          <img 
+          <Image 
             src="/images/breadroad main logo.png" 
             alt="Bread Logo" 
+            width={120}
+            height={40}
             className="h-[40px] w-auto object-contain"
           />
           <p className="text-white text-[24px] font-normal leading-[140%] whitespace-nowrap" style={{ fontFamily: 'BagelFatOne, cursive', color: '#FFFF', fontWeight: 400 }}>
@@ -70,14 +73,18 @@ export default function Home() {
           <div className="flex flex-col items-center gap-[64px] mt-[64px] w-full max-w-[1512px]">
             {/* Main Icon Image */}
             <div className="flex items-end relative">
-              <img
+              <Image
                 src="/images/main-bread.png"
                 alt="Main bread"
+                width={584}
+                height={385}
                 className="h-[385px] w-[584px] object-cover"
               />
-              <img
+              <Image
                 src="/images/Pin.png"
                 alt="Pin"
+                width={97}
+                height={113}
                 className="h-[112.872px] w-[96.749px] object-contain"
               />
             </div>
@@ -159,11 +166,12 @@ function RankCard({
         <div className="flex flex-col items-center gap-[23px] w-[140px]">
           <div className="flex flex-col items-center gap-[12px]">
             {/* Image */}
-            <div className="w-[140px] h-[140px] rounded-full overflow-hidden">
-              <img
+            <div className="w-[140px] h-[140px] rounded-full overflow-hidden relative">
+              <Image
                 src={image}
                 alt={courseName}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
 
@@ -180,9 +188,11 @@ function RankCard({
 
           {/* Recommendations */}
           <div className="flex items-center gap-[10px]">
-            <img
+            <Image
               src="/images/Tumbsup icon_brown.png"
               alt="Thumbs Up"
+              width={40}
+              height={40}
               className="size-[40px] object-contain"
             />
             <p className="text-[32px] text-[#473327] whitespace-nowrap leading-[140%]" style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 600 }}>

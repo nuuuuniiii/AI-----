@@ -47,16 +47,32 @@ export const auth = {
 export const db = {
   // 데이터 조회
   async select(table: string, columns = '*', filters?: Record<string, string | number | boolean>) {
-    let query = supabase.from(table).select(columns)
-    
-    if (filters) {
-      Object.entries(filters).forEach(([key, value]) => {
-        query = query.eq(key, value)
-      })
+    try {
+      let query = supabase.from(table).select(columns)
+      
+      if (filters) {
+        Object.entries(filters).forEach(([key, value]) => {
+          query = query.eq(key, value)
+        })
+      }
+      
+      const { data, error } = await query
+      
+      // 에러가 있으면 상세 로깅
+      if (error) {
+        console.error(`[db.select] ${table} 테이블 조회 에러:`, error);
+        console.error(`[db.select] 에러 상세:`, JSON.stringify(error, null, 2));
+        console.error(`[db.select] 에러 타입:`, typeof error);
+        console.error(`[db.select] 에러 키:`, error ? Object.keys(error) : []);
+        console.error(`[db.select] 필터:`, filters || '없음');
+        console.error(`[db.select] 컬럼:`, columns);
+      }
+      
+      return { data, error: error || null }
+    } catch (err) {
+      console.error(`[db.select] ${table} 테이블 조회 중 예외 발생:`, err);
+      return { data: null, error: err as Error }
     }
-    
-    const { data, error } = await query
-    return { data, error }
   },
 
   // 데이터 삽입

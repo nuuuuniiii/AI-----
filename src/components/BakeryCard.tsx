@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface BakeryCardProps {
   card: string;
   index: number;
@@ -23,10 +25,13 @@ export default function BakeryCard({
     <div className="flex items-center justify-between py-[20px] relative w-full">
       <div className="flex items-center gap-[16px]">
         <div className="size-[44px] relative">
-          <img 
+          <Image 
             src={card} 
             alt={`Bakery ${index + 1}`}
+            width={44}
+            height={44}
             className="w-full h-full object-contain"
+            unoptimized
           />
         </div>
         <div className="flex flex-col">

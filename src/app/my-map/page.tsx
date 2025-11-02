@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { KoreaMapWithBreadIcon, MapBreadIcon } from '@/components/Icons';
 import RoadModal from '@/components/RoadModal';
 import { auth, db } from '@/lib/supabase-client';
@@ -258,6 +259,7 @@ interface CourseDetail {
   region: string;
   recommendation_count: number;
   bakeries: BakeryWithReview[];
+  isRecommended?: boolean;
 }
 
 export default function MyMap() {
@@ -331,8 +333,19 @@ export default function MyMap() {
         return;
       }
 
-      const courseData = course[0] as SavedCourse;
+      const courseData = course[0] as SavedCourse & { recommendation_count?: number };
       console.log('[My Map] 코스 정보:', courseData);
+
+      // 현재 사용자가 이미 추천했는지 확인
+      const { user } = await auth.getCurrentUser();
+      let isRecommended = false;
+      if (user) {
+        const { data: existingRecommendations } = await db.select('recommendations', '*', {
+          course_id: courseId,
+          user_id: user.id
+        });
+        isRecommended = existingRecommendations && Array.isArray(existingRecommendations) && existingRecommendations.length > 0;
+      }
 
       // 2. 코스에 연결된 빵집들 가져오기 (course_bakeries)
       const { data: courseBakeries, error: courseBakeriesError } = await db.select(
@@ -489,7 +502,8 @@ export default function MyMap() {
         name: courseData.name,
         region: courseData.region,
         recommendation_count: courseData.recommendation_count || 0,
-        bakeries: bakeriesWithDetails
+        bakeries: bakeriesWithDetails,
+        isRecommended: isRecommended
       };
       
       console.log('[My Map] 최종 코스 상세 정보:', finalCourseDetail);
@@ -513,6 +527,14 @@ export default function MyMap() {
     loadCourseDetail(courseId);
   };
 
+  const handleRecommend = (newCount: number) => {
+    if (courseDetail) {
+      setCourseDetail({
+        ...courseDetail,
+        recommendation_count: newCount
+      });
+    }
+  };
 
   const handleEdit = () => {
     if (!selectedCourseId) {
@@ -570,9 +592,11 @@ export default function MyMap() {
       <div className="bg-[#473327] h-[90px] relative w-full flex items-center justify-between px-[34px]">
         {/* Logo */}
         <div className="flex items-center gap-[6px]">
-          <img 
+          <Image 
             src="/images/breadroad main logo.png" 
             alt="Bread Logo" 
+            width={120}
+            height={40}
             className="h-[40px] w-auto object-contain"
           />
           <p className="text-white text-[24px] font-normal leading-[140%] whitespace-nowrap" style={{ fontFamily: 'BagelFatOne, cursive', color: '#FFFF', fontWeight: 400 }}>
@@ -625,12 +649,12 @@ export default function MyMap() {
         <div className="flex items-end justify-between px-[70px] py-[0px] relative w-full">
           <div className="flex flex-col items-start w-[337px]">
             <div className="h-[70px] relative w-full">
-              <h1 className="absolute font-normal text-[50px] text-[#50392b] uppercase leading-[140%] top-0 left-0 w-[337px]" style={{ fontFamily: 'BagelFatOne, cursive', fontWeight: 400 }}>
+              <h1 className="absolute font-normal text-[50px] text-[#50392b] uppercase leading-[140%] top-0 left-0 w-[337px] whitespace-nowrap" style={{ fontFamily: 'BagelFatOne, cursive', fontWeight: 400 }}>
               내 빵지순례 지도
             </h1>
             </div>
             <div className="h-[25px] relative w-full">
-              <p className="absolute font-semibold text-[18px] text-[#dabea6] leading-[140%] top-0 left-0 w-[337px]">
+              <p className="absolute font-semibold text-[18px] text-[#dabea6] leading-[140%] top-0 left-0 w-[337px] whitespace-nowrap">
               내가 등록한 빵지순례코스를 한눈에 볼 수 있어요
             </p>
             </div>
@@ -712,6 +736,7 @@ export default function MyMap() {
                 <RoadModal
                   location={courseDetail.name}
                   recommendations={courseDetail.recommendation_count}
+                  courseId={selectedCourseId || undefined}
                   shops={courseDetail.bakeries.length > 0 
                     ? courseDetail.bakeries.map((bakery, index) => {
                         // operating_hours에서 시간 문자열 추출
@@ -753,6 +778,8 @@ export default function MyMap() {
                   }
                   onEdit={handleEdit}
                   onDelete={handleDelete}
+                  courseId={selectedCourseId || undefined}
+                  onRecommend={handleRecommend}
                 />
               )}
             </div>

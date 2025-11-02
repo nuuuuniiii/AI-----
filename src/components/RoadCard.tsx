@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { BreadIconBrown, ClockIconBrown, StarIconBrown, EditIcon } from './Icons';
 
 interface RoadCardProps {
@@ -41,7 +42,7 @@ export default function RoadCard({ name, hours, rating, review, image, order }: 
         </div>
       </div>
       <div className="size-[153px] relative rounded-[4px] overflow-hidden">
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+        <Image src={image} alt={name} fill className="object-cover" unoptimized />
       </div>
     </div>
   );

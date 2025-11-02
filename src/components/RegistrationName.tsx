@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 
 interface RegistrationNameProps {
   courseName: string;
@@ -46,7 +47,13 @@ const RegistrationName = ({
 
   // Handle calendar icon click
   const handleCalendarIconClick = () => {
-    dateInputRef.current?.showPicker?.() || dateInputRef.current?.click();
+    if (dateInputRef.current) {
+      if (dateInputRef.current.showPicker) {
+        dateInputRef.current.showPicker();
+      } else {
+        dateInputRef.current.click();
+      }
+    }
   };
 
   return (
@@ -61,8 +68,8 @@ const RegistrationName = ({
           <div className="flex flex-col gap-[6px]">
             <div className="flex gap-[2px] items-center">
               {/* 태그 아이콘 */}
-              <div className="size-[25px] flex items-center justify-center">
-                <img alt="tag icon" className="block max-w-none size-full" src={imgMdiTag} />
+              <div className="size-[25px] flex items-center justify-center relative">
+                <Image alt="tag icon" src={imgMdiTag} width={25} height={25} className="block max-w-none size-full" unoptimized />
               </div>
               <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                 순례코스 이름
@@ -86,7 +93,7 @@ const RegistrationName = ({
             <div className="flex gap-[2px] items-center">
               {/* 시계 아이콘 */}
               <div className="size-[25px] flex items-center justify-center relative">
-                <img alt="clock icon" className="block max-w-none size-full" src={imgClockIcon} />
+                <Image alt="clock icon" src={imgClockIcon} width={25} height={25} className="block max-w-none size-full" unoptimized />
               </div>
               <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                 날짜

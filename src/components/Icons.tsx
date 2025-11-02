@@ -1,9 +1,11 @@
 'use client';
 
+import Image from 'next/image';
+
 export function PinIcon() {
   return (
     <div className="size-[41px] relative">
-      <img src="/images/Pin.png" alt="Pin" className="w-full h-full object-contain" />
+      <Image src="/images/Pin.png" alt="Pin" width={41} height={41} className="w-full h-full object-contain" />
     </div>
   );
 }
@@ -32,24 +34,24 @@ export function SearchIconSmall() {
 
 export function NotIcon() {
   return (
-    <div className="size-[32px]">
-      <img src="/images/Not icon.png" alt="Not" className="w-full h-full object-contain" />
+    <div className="size-[32px] relative">
+      <Image src="/images/Not icon.png" alt="Not" width={32} height={32} className="w-full h-full object-contain" />
     </div>
   );
 }
 
 export function StarIcon() {
   return (
-    <div className="size-[32px]">
-      <img src="/images/Star icon.png" alt="Star" className="w-full h-full object-contain" />
+    <div className="size-[32px] relative">
+      <Image src="/images/Star icon.png" alt="Star" width={32} height={32} className="w-full h-full object-contain" />
     </div>
   );
 }
 
 export function ClockIcon() {
   return (
-    <div className="size-[32px]">
-      <img src="/images/Clock icon.png" alt="Clock" className="w-full h-full object-contain" />
+    <div className="size-[32px] relative">
+      <Image src="/images/Clock icon.png" alt="Clock" width={32} height={32} className="w-full h-full object-contain" />
     </div>
   );
 }
@@ -57,7 +59,7 @@ export function ClockIcon() {
 export function BreadIcon({ count = 1 }: { count?: number }) {
   return (
     <div className="size-[32px] relative flex flex-col items-center justify-center">
-      <img src="/images/Not icon.png" alt="Bread" className="w-full h-full object-contain" />
+      <Image src="/images/Not icon.png" alt="Bread" width={32} height={32} className="w-full h-full object-contain" />
       <p className="absolute font-semibold text-[16px] text-white uppercase">
         {count}
       </p>
@@ -67,8 +69,8 @@ export function BreadIcon({ count = 1 }: { count?: number }) {
 
 export function ThumbsUpIcon() {
   return (
-    <div className="size-[40px]">
-      <img src="/images/Tumbsup icon_brown.png" alt="Thumbs Up" className="w-full h-full object-contain" />
+    <div className="size-[40px] relative">
+      <Image src="/images/Tumbsup icon_brown.png" alt="Thumbs Up" width={40} height={40} className="w-full h-full object-contain" />
     </div>
   );
 }

@@ -78,6 +78,7 @@ export default function ImageUpload({
         className="w-full h-32 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center hover:border-gray-400 transition-colors disabled:opacity-50"
       >
         {previewUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={previewUrl}
             alt="Preview"

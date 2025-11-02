@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface BakeryRegistrationCardProps {
   bakeryName: string;
@@ -167,9 +168,9 @@ export default function BakeryRegistrationCard({
                     <p className="text-xs text-gray-600">업로드 중...</p>
                   </div>
                 ) : imageUrl ? (
-                  <img alt="bakery" className="absolute inset-0 object-cover rounded-[10px] size-full" src={imageUrl} />
+                  <Image alt="bakery" src={imageUrl} fill className="object-cover rounded-[10px]" unoptimized />
                 ) : (
-                  <img alt="bakery placeholder" className="absolute inset-0 object-cover rounded-[10px] size-full" src={imgDefaultBakery} />
+                  <Image alt="bakery placeholder" src={imgDefaultBakery} fill className="object-cover rounded-[10px]" unoptimized />
                 )}
               </div>
             </div>
@@ -182,7 +183,7 @@ export default function BakeryRegistrationCard({
                 <div className="flex flex-col gap-[2px] items-start relative w-full">
                   <div className="flex gap-[2px] items-center relative w-full">
                     <div className="w-[15px] h-[15px] relative flex items-center justify-center">
-                      <img alt="clock icon" className="block max-w-none w-full h-full" src={imgClockIcon} />
+                      <Image alt="clock icon" src={imgClockIcon} width={15} height={15} className="block max-w-none w-full h-full" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[14px] text-white leading-[1.4]">
                       영업일
@@ -212,7 +213,7 @@ export default function BakeryRegistrationCard({
                 <div className="flex flex-col gap-[2px] items-start relative w-full">
                   <div className="flex gap-[2px] items-center relative w-full">
                     <div className="w-[15px] h-[15px] relative flex items-center justify-center shrink-0">
-                      <img alt="star icon" className="block max-w-none w-[15px] h-[15px]" src={imgStarIcon} />
+                      <Image alt="star icon" src={imgStarIcon} width={15} height={15} className="block max-w-none w-[15px] h-[15px]" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[14px] text-white leading-[1.4]">
                       별점
@@ -244,8 +245,8 @@ export default function BakeryRegistrationCard({
                 <div className="flex flex-col gap-[2px] items-start relative w-full">
                   <div className="flex gap-[2px] items-center relative w-[174px]">
                     <div className="w-[15px] h-[15px] relative flex items-center justify-center">
-                      <img alt="review icon 1" className="absolute block max-w-none w-full h-full" src={imgReviewIcon1} />
-                      <img alt="review icon 2" className="absolute block max-w-none w-full h-full" src={imgReviewIcon2} />
+                      <Image alt="review icon 1" src={imgReviewIcon1} width={15} height={15} className="absolute block max-w-none w-full h-full" unoptimized />
+                      <Image alt="review icon 2" src={imgReviewIcon2} width={15} height={15} className="absolute block max-w-none w-full h-full" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[14px] text-white leading-[1.4]">
                       리뷰
@@ -280,8 +281,8 @@ export default function BakeryRegistrationCard({
 export function AddBakeryButton({ onClick }: { onClick: () => void }) {
   return (
     <div className="size-[32px] cursor-pointer relative" onClick={onClick}>
-      <div className="absolute inset-[8.333%]">
-        <img alt="add icon" className="block max-w-none size-full" src={imgAddIcon} />
+      <div className="absolute inset-[8.333%] relative">
+        <Image alt="add icon" src={imgAddIcon} width={24} height={24} className="block max-w-none size-full" unoptimized />
       </div>
     </div>
   );
