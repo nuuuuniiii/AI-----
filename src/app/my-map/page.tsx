@@ -778,7 +778,6 @@ export default function MyMap() {
                   }
                   onEdit={handleEdit}
                   onDelete={handleDelete}
-                  courseId={selectedCourseId || undefined}
                   onRecommend={handleRecommend}
                 />
               )}

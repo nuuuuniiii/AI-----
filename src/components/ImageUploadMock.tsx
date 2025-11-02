@@ -10,7 +10,7 @@ interface ImageUploadMockProps {
 
 export default function ImageUploadMock({ 
   onImageUploaded, 
-  folder = 'bread-pilgrimage',
+  folder: _folder = 'bread-pilgrimage',
   className = ''
 }: ImageUploadMockProps) {
   const [isUploading, setIsUploading] = useState(false);

@@ -86,7 +86,7 @@ export const bakeryService = {
   },
 
   // 간단한 지오코딩 함수 (실제로는 Google Maps API 등 사용)
-  async geocodeAddress(address: string): Promise<{ lat: number; lng: number }> {
+  async geocodeAddress(_address: string): Promise<{ lat: number; lng: number }> {
     // 임시 좌표 반환 (실제로는 지오코딩 API 호출)
     return {
       lat: 37.5665 + (Math.random() - 0.5) * 0.1,

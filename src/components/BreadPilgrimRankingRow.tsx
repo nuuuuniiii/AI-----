@@ -1,7 +1,6 @@
 'use client';
 
 import { BreadPilgrimRanking } from '@/data/ranking';
-import Image from 'next/image';
 import Link from 'next/link';
 
 interface BreadPilgrimRankingRowProps {
@@ -9,24 +8,9 @@ interface BreadPilgrimRankingRowProps {
   index: number;
 }
 
-export default function BreadPilgrimRankingRow({ user, index }: BreadPilgrimRankingRowProps) {
-  const getRankColor = (rank: number) => {
+export default function BreadPilgrimRankingRow({ user }: BreadPilgrimRankingRowProps) {
+  const getRankColor = (_rank: number) => {
     return 'text-[#8B4513] bg-[#F0E6D2]';
-  };
-
-  const formatLastActive = (lastActiveAt: string) => {
-    const now = new Date();
-    const lastActive = new Date(lastActiveAt);
-    const diffInHours = Math.floor((now.getTime() - lastActive.getTime()) / (1000 * 60 * 60));
-    
-    if (diffInHours < 1) {
-      return '방금 전';
-    } else if (diffInHours < 24) {
-      return `${diffInHours}시간 전`;
-    } else {
-      const diffInDays = Math.floor(diffInHours / 24);
-      return `${diffInDays}일 전`;
-    }
   };
 
   return (

@@ -38,7 +38,7 @@ export default function LoginPage() {
     }
 
     try {
-      const { data, error: loginError } = await auth.signIn(email, password);
+      const { error: loginError } = await auth.signIn(email, password);
 
       if (loginError) {
         // "Email not confirmed" 오류인 경우 자동으로 이메일 확인 처리 시도
@@ -53,11 +53,11 @@ export default function LoginPage() {
               body: JSON.stringify({ email }),
             });
 
-            const confirmData = await confirmResponse.json();
+            await confirmResponse.json();
 
             if (confirmResponse.ok) {
               // 이메일 확인 처리 후 다시 로그인 시도
-              const { data: retryData, error: retryError } = await auth.signIn(email, password);
+              const { error: retryError } = await auth.signIn(email, password);
               if (retryError) {
                 setError(retryError.message || '로그인에 실패했습니다.');
               } else {
@@ -69,7 +69,7 @@ export default function LoginPage() {
             } else {
               // 이메일 확인 실패 시, 다시 로그인 시도 (Supabase 설정에 따라 작동할 수 있음)
               // 또는 사용자에게 안내
-              const { data: retryData, error: retryError } = await auth.signIn(email, password);
+              const { error: retryError } = await auth.signIn(email, password);
               if (retryError) {
                 // 여전히 실패하면, Supabase 대시보드 설정 확인 필요
                 setError('이메일 확인이 필요합니다. Supabase 대시보드에서 이메일 확인을 비활성화하거나 이메일을 확인해주세요.');

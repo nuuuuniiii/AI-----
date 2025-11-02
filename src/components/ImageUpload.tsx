@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { uploadImage } from '@/lib/cloudinary';
 
 interface ImageUploadProps {
   onImageUploaded: (url: string, publicId: string) => void;

@@ -210,15 +210,6 @@ interface CourseDetail {
   isRecommended?: boolean;
 }
 
-  const handleRecommend = (newCount: number) => {
-    if (courseDetail) {
-      setCourseDetail({
-        ...courseDetail,
-        recommendation_count: newCount
-      });
-    }
-  };
-
 export default function UserMapPage() {
   const params = useParams();
   const userId = params.userId as string;
