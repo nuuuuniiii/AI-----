@@ -17,12 +17,12 @@ interface BakeryRegistrationCardProps {
   onDelete?: () => void;
 }
 
-const imgClockIcon = "http://localhost:3845/assets/5789783fae643c6e047e16c00ff331c4c98f60b9.svg";
-const imgStarIcon = "http://localhost:3845/assets/8014bbe825147d61b8e56e07c88adeee7838cff7.svg";
-const imgReviewIcon1 = "http://localhost:3845/assets/0d5143ff295d7dc9a64432933e8b06afbca79060.svg";
-const imgReviewIcon2 = "http://localhost:3845/assets/be7b0ae62c52858011b43d5c0acf24af72210a1a.svg";
-const imgDefaultBakery = "http://localhost:3845/assets/7f12ea1300756f144a0fb5daaf68dbfc01103a46.png";
-const imgAddIcon = "http://localhost:3845/assets/5770549b50f727539afba3123bee769ea208bdef.svg";
+const imgClockIcon = "/images/Clock icon-brown.png";
+const imgStarIcon = "/images/Star icon-brown.png";
+const imgReviewIcon1 = "/images/Not icon-brown.png";
+const imgReviewIcon2 = "/images/Not icon-brown.png";
+const imgDefaultBakery = "/images/Rectangle 34625738.png";
+const imgAddIcon = "/images/Add icon.png";
 
 export default function BakeryRegistrationCard({
   bakeryName,

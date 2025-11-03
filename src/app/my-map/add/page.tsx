@@ -10,6 +10,8 @@ import BakeryRegistrationCard, { AddBakeryButton } from '@/components/BakeryRegi
 import { MapBreadIcon } from '@/components/Icons';
 import { auth, db } from '@/lib/supabase-client';
 
+// 지도 이미지는 SVG가 없으므로 로컬호스트 경로 유지 또는 다른 방법 필요
+// 임시로 placeholder 사용하거나 실제 이미지 파일로 교체 필요
 const imgFrame2147205214 = "http://localhost:3845/assets/37b52fe5e0a9fbd5de3f4eaa5f8936f8f9b2a138.svg";
 const imgFrame2147205213 = "http://localhost:3845/assets/617b4f0073b8f2715917a464cf2fd3217f4273b2.svg";
 
@@ -771,7 +773,7 @@ function MyMapAddContent() {
                 <div className="flex flex-col gap-[6px]">
                   <div className="flex gap-[2px] items-center">
                     <div className="size-[25px] flex items-center justify-center relative">
-                      <Image alt="tag icon" src="http://localhost:3845/assets/9a432e408770638a6e3bf02e21d34e48da114c3d.svg" width={25} height={25} className="block max-w-none size-full" unoptimized />
+                      <Image alt="tag icon" src="/images/mdi_tag.png" width={25} height={25} className="block max-w-none size-full" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                       순례코스 이름
@@ -788,7 +790,7 @@ function MyMapAddContent() {
                 <div className="flex flex-col gap-[6px]">
                   <div className="flex gap-[2px] items-center">
                     <div className="size-[25px] flex items-center justify-center relative">
-                      <Image alt="clock icon" src="http://localhost:3845/assets/f60aa8e5dfb6a3e9d4eb42adbd74b7931745dfed.svg" width={25} height={25} className="block max-w-none size-full" unoptimized />
+                      <Image alt="clock icon" src="/images/Clock icon-brown.png" width={25} height={25} className="block max-w-none size-full" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                       날짜

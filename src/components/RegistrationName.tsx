@@ -10,8 +10,8 @@ interface RegistrationNameProps {
   onDateChange: (value: string) => void;
 }
 
-const imgClockIcon = "http://localhost:3845/assets/f60aa8e5dfb6a3e9d4eb42adbd74b7931745dfed.svg";
-const imgMdiTag = "http://localhost:3845/assets/9a432e408770638a6e3bf02e21d34e48da114c3d.svg";
+const imgClockIcon = "/images/Clock icon-brown.png";
+const imgMdiTag = "/images/mdi_tag.png";
 
 const RegistrationName = ({ 
   courseName, 
