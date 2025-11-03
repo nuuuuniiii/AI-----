@@ -7,13 +7,10 @@ import GNB from '@/components/GNB';
 import CourseRegistrationCard from '@/components/CourseRegistrationCard';
 import GnbBtn from '@/components/GnbBtn';
 import BakeryRegistrationCard, { AddBakeryButton } from '@/components/BakeryRegistrationCard';
-import { MapBreadIcon } from '@/components/Icons';
+import { MapBreadIcon, KoreaMapWithBreadIcon } from '@/components/Icons';
 import { auth, db } from '@/lib/supabase-client';
 
-// 지도 이미지는 SVG가 없으므로 로컬호스트 경로 유지 또는 다른 방법 필요
-// 임시로 placeholder 사용하거나 실제 이미지 파일로 교체 필요
-const imgFrame2147205214 = "http://localhost:3845/assets/37b52fe5e0a9fbd5de3f4eaa5f8936f8f9b2a138.svg";
-const imgFrame2147205213 = "http://localhost:3845/assets/617b4f0073b8f2715917a464cf2fd3217f4273b2.svg";
+// 지도는 KoreaMapWithBreadIcon 컴포넌트 사용
 
 interface BakeryData {
   id: string;
@@ -34,53 +31,19 @@ function KoreaMap({
   selectedPosition: { x: number; y: number } | null;
 }) {
   return (
-    <div className="flex gap-[11px] h-[1054px] items-start relative">
-      {/* 한반도 지도 */}
-      <div className="h-[1042.08px] relative shrink-0 w-[545.725px] cursor-pointer" onClick={onClick}>
-        <div className="absolute bottom-[-1.69%] left-[-1.61%] right-[-1.22%] top-0 w-full h-full">
-          <Image 
-            alt="korea map" 
-            src={imgFrame2147205214} 
-            fill 
-            className="object-contain" 
-            unoptimized
-            sizes="545.725px"
-          />
-        </div>
-        {/* 클릭한 위치에 아이콘 표시 */}
-        {selectedPosition && courseName && selectedPosition.x <= 545.725 && (
-          <MapBreadIcon
-            name={courseName}
-            isCity={true}
-            left={selectedPosition.x}
-            top={selectedPosition.y}
-            onClick={() => {}}
-          />
-        )}
-      </div>
-      {/* 제주도 지도 */}
-      <div className="h-[584px] relative shrink-0 w-[114.941px] cursor-pointer" onClick={onClick}>
-        <div className="absolute bottom-0 left-[-7.29%] right-[-6.64%] top-0 w-full h-full">
-          <Image 
-            alt="jeju map" 
-            src={imgFrame2147205213} 
-            fill 
-            className="object-contain" 
-            unoptimized
-            sizes="114.941px"
-          />
-        </div>
-        {/* 제주도 클릭 시에도 아이콘 표시 */}
-        {selectedPosition && selectedPosition.x > 545.725 && courseName && (
-          <MapBreadIcon
-            name={courseName}
-            isCity={true}
-            left={selectedPosition.x - 545.725}
-            top={selectedPosition.y}
-            onClick={() => {}}
-          />
-        )}
-      </div>
+    <div className="relative w-[689px] h-[1060px] cursor-pointer" onClick={onClick}>
+      {/* 지도 컴포넌트 사용 */}
+      <KoreaMapWithBreadIcon />
+      {/* 클릭한 위치에 아이콘 표시 */}
+      {selectedPosition && courseName && (
+        <MapBreadIcon
+          name={courseName}
+          isCity={true}
+          left={selectedPosition.x}
+          top={selectedPosition.y}
+          onClick={() => {}}
+        />
+      )}
     </div>
   );
 }

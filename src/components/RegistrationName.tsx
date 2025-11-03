@@ -91,9 +91,9 @@ const RegistrationName = ({
         <div className="absolute h-[75px] left-[26px] top-[125px] w-[304px]">
           <div className="flex flex-col gap-[6px]">
             <div className="flex gap-[2px] items-center">
-              {/* 시계 아이콘 */}
+              {/* 시계 아이콘 - 흰색 */}
               <div className="size-[25px] flex items-center justify-center relative">
-                <Image alt="clock icon" src={imgClockIcon} width={25} height={25} className="block max-w-none size-full" unoptimized />
+                <Image alt="clock icon" src={imgClockIcon} width={25} height={25} className="block max-w-none size-full brightness-[0] invert" unoptimized />
               </div>
               <p className="font-pretendard-semibold text-[18px] text-white leading-[1.4] whitespace-nowrap">
                 날짜

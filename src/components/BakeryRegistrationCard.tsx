@@ -21,7 +21,7 @@ const imgClockIcon = "/images/Clock icon-brown.png";
 const imgStarIcon = "/images/Star icon-brown.png";
 const imgReviewIcon1 = "/images/Not icon-brown.png";
 const imgReviewIcon2 = "/images/Not icon-brown.png";
-const imgDefaultBakery = "/images/Rectangle 34625738.png";
+// 체크보드 배경을 CSS로 구현하므로 더 이상 필요 없음
 const imgAddIcon = "/images/Add icon.png";
 
 export default function BakeryRegistrationCard({
@@ -163,15 +163,28 @@ export default function BakeryRegistrationCard({
                 className="h-[131px] rounded-[10px] w-[138px] cursor-pointer relative overflow-hidden"
                 onClick={handleImageClick}
               >
+                {/* 체크보드 배경 */}
+                <div 
+                  className="absolute inset-0 rounded-[10px]"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                      linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                      linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)
+                    `,
+                    backgroundSize: '20px 20px',
+                    backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
+                  }}
+                />
+                {/* 업로드된 이미지가 있으면 표시 */}
                 {isUploading ? (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-[10px]">
+                  <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 rounded-[10px] z-10">
                     <p className="text-xs text-gray-600">업로드 중...</p>
                   </div>
                 ) : imageUrl ? (
-                  <Image alt="bakery" src={imageUrl} fill className="object-cover rounded-[10px]" unoptimized />
-                ) : (
-                  <Image alt="bakery placeholder" src={imgDefaultBakery} fill className="object-cover rounded-[10px]" unoptimized />
-                )}
+                  <Image alt="bakery" src={imageUrl} fill className="object-cover rounded-[10px] z-0" unoptimized />
+                ) : null}
               </div>
             </div>
 
@@ -183,7 +196,7 @@ export default function BakeryRegistrationCard({
                 <div className="flex flex-col gap-[2px] items-start relative w-full">
                   <div className="flex gap-[2px] items-center relative w-full">
                     <div className="w-[15px] h-[15px] relative flex items-center justify-center">
-                      <Image alt="clock icon" src={imgClockIcon} width={15} height={15} className="block max-w-none w-full h-full" unoptimized />
+                      <Image alt="clock icon" src={imgClockIcon} width={15} height={15} className="block max-w-none w-full h-full brightness-[0] invert" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[14px] text-white leading-[1.4]">
                       영업일
@@ -213,7 +226,7 @@ export default function BakeryRegistrationCard({
                 <div className="flex flex-col gap-[2px] items-start relative w-full">
                   <div className="flex gap-[2px] items-center relative w-full">
                     <div className="w-[15px] h-[15px] relative flex items-center justify-center shrink-0">
-                      <Image alt="star icon" src={imgStarIcon} width={15} height={15} className="block max-w-none w-[15px] h-[15px]" unoptimized />
+                      <Image alt="star icon" src={imgStarIcon} width={15} height={15} className="block max-w-none w-[15px] h-[15px] brightness-[0] invert" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[14px] text-white leading-[1.4]">
                       별점
@@ -245,8 +258,8 @@ export default function BakeryRegistrationCard({
                 <div className="flex flex-col gap-[2px] items-start relative w-full">
                   <div className="flex gap-[2px] items-center relative w-[174px]">
                     <div className="w-[15px] h-[15px] relative flex items-center justify-center">
-                      <Image alt="review icon 1" src={imgReviewIcon1} width={15} height={15} className="absolute block max-w-none w-full h-full" unoptimized />
-                      <Image alt="review icon 2" src={imgReviewIcon2} width={15} height={15} className="absolute block max-w-none w-full h-full" unoptimized />
+                      <Image alt="review icon 1" src={imgReviewIcon1} width={15} height={15} className="absolute block max-w-none w-full h-full brightness-[0] invert" unoptimized />
+                      <Image alt="review icon 2" src={imgReviewIcon2} width={15} height={15} className="absolute block max-w-none w-full h-full brightness-[0] invert" unoptimized />
                     </div>
                     <p className="font-pretendard-semibold text-[14px] text-white leading-[1.4]">
                       리뷰
